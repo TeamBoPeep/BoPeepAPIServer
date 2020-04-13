@@ -12,6 +12,7 @@ namespace APIBackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+  
     public class ActivitiesController : ControllerBase
     {
         private readonly BoPeepDbContext _context;

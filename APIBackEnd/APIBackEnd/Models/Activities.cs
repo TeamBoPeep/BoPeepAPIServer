@@ -14,6 +14,7 @@ namespace APIBackEnd.Models
         public double Rating { get; set; }
         public Location Location { get; set; }
         public string ExternalLink { get; set; }
+        public string ImageUrl { get; set; }
 
         //naviggation properties
         public List<Reviews> Reviews = new List<Reviews>();
@@ -25,11 +26,13 @@ namespace APIBackEnd.Models
     {
         Indoor = 0, 
         Outdoor = 1,
+        Both = 2
     }
     public enum Rate
     {
-        UpVote = 0,
-        DownVote = 1,
+        UpVote = 1,
+        DownVote = 0,
+        Null = 2,
 
     }
 }
