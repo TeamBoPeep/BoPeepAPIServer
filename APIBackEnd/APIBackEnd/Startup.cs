@@ -41,7 +41,7 @@ namespace APIBackEnd
             //setting a route to be a home and an index, if id exist in a route , it will be used for URL
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("default", "{controller = Home}/{action = Index}/ {id?}");
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
             });
         }

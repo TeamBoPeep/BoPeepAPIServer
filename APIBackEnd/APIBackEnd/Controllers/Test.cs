@@ -9,7 +9,7 @@ namespace APIBackEnd.Controllers
     [Route("api/hello")]
     [ApiController]
 
-    public class Test
+    public class Test : ControllerBase
     {
         [HttpGet]
         public string Hello()
