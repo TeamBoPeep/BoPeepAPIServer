@@ -4,7 +4,7 @@
 
 ### We are deployed on Azure!
 
-[project url here]
+https://bobeepapi.azurewebsites.net/api
 
 ---
 
@@ -34,3 +34,8 @@ Microsoft Visual Studio Community 2019
 - Azure
 
 ---
+
+## Change Logs
+- *Routes created for activites* April 13 2020
+- *Created MVC files and deployed website* April 13 2020
+- *Initalized README document* April 13 2020
