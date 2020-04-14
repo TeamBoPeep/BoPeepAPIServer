@@ -11,7 +11,7 @@ namespace APIBackEnd.Models.Interface
         Task<List<ReviewsDTO>> GetReviewsById(int ID);
 
         //create
-        Task<ActivitiesDTO> CreateActivity(Activities activities);
+        Task<ActivitiesDTO> CreateActivity(ActivitiesDTO activities);
         //read
         Task<ActivitiesDTO> GetActivity(int ID);
         //readAll

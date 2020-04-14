@@ -153,13 +153,27 @@ namespace APIBackEnd.Migrations
                         });
                 });
 
-            modelBuilder.Entity("APIBackEnd.Models.Reviews", b =>
+            modelBuilder.Entity("APIBackEnd.Models.ActivitiesReviews", b =>
                 {
-                    b.Property<int>("ActivitiesId")
+                    b.Property<int>("ReviewsID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
+                    b.Property<int>("ActivitiesID")
                         .HasColumnType("int");
+
+                    b.HasKey("ReviewsID", "ActivitiesID");
+
+                    b.HasIndex("ActivitiesID");
+
+                    b.ToTable("ActivitiesReviews");
+                });
+
+            modelBuilder.Entity("APIBackEnd.Models.Reviews", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -167,7 +181,7 @@ namespace APIBackEnd.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ActivitiesId", "Id");
+                    b.HasKey("Id");
 
                     b.ToTable("Reviews");
                 });
@@ -254,11 +268,17 @@ namespace APIBackEnd.Migrations
                     b.ToTable("TagActivity");
                 });
 
-            modelBuilder.Entity("APIBackEnd.Models.Reviews", b =>
+            modelBuilder.Entity("APIBackEnd.Models.ActivitiesReviews", b =>
                 {
                     b.HasOne("APIBackEnd.Models.Activities", "Activities")
                         .WithMany()
-                        .HasForeignKey("ActivitiesId")
+                        .HasForeignKey("ActivitiesID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("APIBackEnd.Models.Reviews", "Reviews")
+                        .WithMany()
+                        .HasForeignKey("ReviewsID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

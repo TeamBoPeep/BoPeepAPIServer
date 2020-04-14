@@ -16,7 +16,7 @@ namespace APIBackEnd.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TagActivity>().HasKey(x => new { x.ActivitiesId, x.TagId });
-            modelBuilder.Entity<Reviews>().HasKey(x => new { x.ActivitiesId, x.Id });
+            modelBuilder.Entity<ActivitiesReviews>().HasKey(x => new { x.ReviewsID, x.ActivitiesID });
             modelBuilder.Entity<Activities>().HasData(
             //Dummy data for out Activities table
             new Activities
@@ -182,6 +182,9 @@ namespace APIBackEnd.Data
         public DbSet<Tag> Tag { get; set; }
 
         public DbSet<TagActivity> TagActivity { get; set; }
+
+        public DbSet<ActivitiesReviews> ActivitiesReviews { get; set; }
+
 
     }
 }

@@ -56,7 +56,7 @@ namespace APIBackEnd.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Activities>> PostActivities(Activities activities)
+        public async Task<ActionResult<Activities>> PostActivities(ActivitiesDTO activities)
         {
             await _context.CreateActivity(activities);
 

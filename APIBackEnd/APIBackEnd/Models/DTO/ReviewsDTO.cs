@@ -7,14 +7,11 @@ namespace APIBackEnd.Models.DTO
 {
     public class ReviewsDTO
     {
-        public int ActivitiesId { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public int ActivitiesId { get; set; }
 
-        //navigation property
-        public Activities Activities { get; set; }
-        //public UserNames UserNames { get; set; }
 
     }
 }
