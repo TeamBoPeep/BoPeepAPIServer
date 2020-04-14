@@ -7,6 +7,7 @@ namespace APIBackEnd.Models.DTO
 {
     public class ActivitiesDTO
     {
+        public int ID { get; set; }
         //helps shape the information of the activities table so the front end can utilize the data
         public string Title { get; set; }
         public string Description { get; set; }

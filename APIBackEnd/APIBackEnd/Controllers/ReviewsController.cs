@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APIBackEnd.Data;
 using APIBackEnd.Models;
+using APIBackEnd.Models.Interface;
+using APIBackEnd.Models.DTO;
 
 namespace APIBackEnd.Controllers
 {
@@ -14,65 +16,30 @@ namespace APIBackEnd.Controllers
     [ApiController]
     public class ReviewsController : ControllerBase
     {
-        private readonly BoPeepDbContext _context;
+        private readonly IReviewManager _context;
 
-        public ReviewsController(BoPeepDbContext context)
+        public ReviewsController(IReviewManager context)
         {
             _context = context;
         }
 
         // GET: api/Reviews
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Reviews>>> GetReviews()
-        {
-            return await _context.Reviews.ToListAsync();
-        }
+        public async Task<ActionResult<IEnumerable<ReviewsDTO>>> GetReviews() => await _context.GetAllReviews();
+
+
 
         // GET: api/Reviews/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Reviews>> GetReviews(int id)
-        {
-            var reviews = await _context.Reviews.FindAsync(id);
+        public async Task<ActionResult<ReviewsDTO>> GetReviews(int id) => await _context.GetReviews(id);
 
-            if (reviews == null)
-            {
-                return NotFound();
-            }
-
-            return reviews;
-        }
 
         // PUT: api/Reviews/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutReviews(int id, Reviews reviews)
-        {
-            if (id != reviews.Id)
-            {
-                return BadRequest();
-            }
+        public async Task PutReviews(int id, Reviews reviews) => await _context.UpdateReviews(reviews);
 
-            _context.Entry(reviews).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ReviewsExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
 
         // POST: api/Reviews
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
@@ -80,31 +47,15 @@ namespace APIBackEnd.Controllers
         [HttpPost]
         public async Task<ActionResult<Reviews>> PostReviews(Reviews reviews)
         {
-            _context.Reviews.Add(reviews);
-            await _context.SaveChangesAsync();
+            await _context.CreateReviews(reviews);
 
             return CreatedAtAction("GetReviews", new { id = reviews.Id }, reviews);
         }
 
         // DELETE: api/Reviews/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Reviews>> DeleteReviews(int id)
-        {
-            var reviews = await _context.Reviews.FindAsync(id);
-            if (reviews == null)
-            {
-                return NotFound();
-            }
+        public async Task DeleteReviews(int id) => await _context.DeleteReviews(id);
 
-            _context.Reviews.Remove(reviews);
-            await _context.SaveChangesAsync();
 
-            return reviews;
-        }
-
-        private bool ReviewsExists(int id)
-        {
-            return _context.Reviews.Any(e => e.Id == id);
-        }
     }
 }

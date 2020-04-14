@@ -119,6 +119,61 @@ namespace APIBackEnd.Data
                 ExternalLink = "N/A"
             }
             );
+
+         modelBuilder.Entity<Tag>().HasData(
+            //Dummy data for out Tag table
+            new Tag
+            {
+                ID = 1,
+                Names = "Flora/fauna"
+            },
+            new Tag
+            {
+                ID = 2,
+                Names = "Exercise"
+            },
+            new Tag
+            {
+                ID = 3,
+                Names = "Games"
+            },
+            new Tag
+            {
+                ID = 4,
+                Names = "Social"
+            },
+            new Tag
+            {
+                ID = 5,
+                Names = "Pets"
+            },
+            new Tag
+            {
+                ID = 6,
+                Names = "Arts&Crafts"
+            },
+            new Tag
+            {
+                ID = 7,
+                Names = "Self care"
+            },
+            new Tag
+            {
+                ID = 8,
+                Names = "Online"
+            },
+            new Tag
+            {
+                ID = 9,
+                Names = "Productive"
+            },
+            new Tag
+            {
+                ID = 10,
+                Names = "Baking/Cooking"
+            }
+            );
+
         }
         public DbSet<Activities> Activities { get; set; }
         public DbSet<Reviews> Reviews { get; set; }
