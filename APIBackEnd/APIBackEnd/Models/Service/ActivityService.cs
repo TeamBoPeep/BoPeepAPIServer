@@ -79,6 +79,7 @@ namespace APIBackEnd.Models.Service
         {
             ActivitiesDTO aDTO = new ActivitiesDTO()
             {
+                ID = activities.ID,
                 Title = activities.Title,
                 Description = activities.Description,
                 Location = activities.Location.ToString(),
