@@ -15,10 +15,13 @@ namespace APIBackEnd.Models.Service
         /// Allows us to inject our database into this service
         /// </summary>
         private BoPeepDbContext _context;
+        private IReviewManager _reviewContext;
 
-        public ActivityService(BoPeepDbContext context)
+        public ActivityService(BoPeepDbContext context, IReviewManager reviewContext)
         {
             _context = context;
+            _reviewContext = reviewContext;
+
             
         }
         /// <summary>
@@ -52,6 +55,7 @@ namespace APIBackEnd.Models.Service
         {
             var Activity = await _context.Activities.FindAsync(ID);
             ActivitiesDTO dTO = ConvertToDTO(Activity);
+            dTO.Reviews = await GetReviewsById(ID);
             return dTO;
         }
         //Used to get all the activities in the table
@@ -67,6 +71,25 @@ namespace APIBackEnd.Models.Service
                 
             }
             return aDTO;
+        }
+
+        public async Task<List<ReviewsDTO>> GetReviewsById(int ID)
+        {
+            var reviews = await _context.Reviews.Where(x => x.ActivitiesId == ID)
+                                                .ToListAsync();
+            List<ReviewsDTO> rDTOList = new List<ReviewsDTO>();
+            foreach (var item in reviews)
+            {
+                ReviewsDTO rDTO = new ReviewsDTO()
+                {
+                    Id = item.Id,
+                    Description = item.Description,
+                    Name = item.Name
+                };
+                rDTOList.Add(rDTO);
+
+            }
+            return rDTOList;
         }
 
         //changes an activity already in the table (name, description, tags)

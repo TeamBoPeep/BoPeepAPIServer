@@ -35,7 +35,7 @@ namespace APIBackEnd.Data
                 Description = "A chance to enjoy nature without movement, also good to enjoy with your cat",
                 Rate = (Rate)1,
                 Rating = 4.50,
-                Location = 0,
+                Location = (Location)1,
                 ExternalLink = "N/A"
             },
             new Activities

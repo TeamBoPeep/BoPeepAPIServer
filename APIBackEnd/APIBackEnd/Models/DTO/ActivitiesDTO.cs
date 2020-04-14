@@ -19,8 +19,9 @@ namespace APIBackEnd.Models.DTO
         public string ImageUrl { get; set; }
 
 
+
         //naviggation properties
-        public List<Reviews> Reviews = new List<Reviews>();
+        public List<ReviewsDTO> Reviews = new List<ReviewsDTO>();
         public List<Tag> Tag = new List<Tag>();
 
     }
