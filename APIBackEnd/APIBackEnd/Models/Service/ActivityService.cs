@@ -30,16 +30,27 @@ namespace APIBackEnd.Models.Service
         /// <param name="activities"></param>
         /// <returns></returns>
 
-        public async Task<ActivitiesDTO> CreateActivity(Activities activities)
+        public async Task<ActivitiesDTO> CreateActivity(ActivitiesDTO activitiesDTO)
         {
             int total = _context.Activities.Count();
             int upvote = _context.Activities.Where(x => x.Rate == (Rate)1)
                                             .Count();
-            activities.Rating = (upvote / total * 100);
-            var ActivitiesDTO = ConvertToDTO(activities);
+            activitiesDTO.Rating = (upvote / total * 5);
+
+            Activities activities = new Activities()
+            {
+                ID = activitiesDTO.ID,
+                Title = activitiesDTO.Title,
+                Location = Enum.Parse<Location>(activitiesDTO.Location),
+                Description = activitiesDTO.Description,
+                Rate = (Rate)activitiesDTO.Rate,
+                Rating = activitiesDTO.Rating,
+                ExternalLink = activitiesDTO.ExternalLink,
+                ImageUrl = activitiesDTO.ImageUrl
+            };
             _context.Add(activities);
             await _context.SaveChangesAsync();
-            return ActivitiesDTO;
+            return activitiesDTO;
         }
         //used to remove an activity
         public async Task DeleteActivities(int ID)
