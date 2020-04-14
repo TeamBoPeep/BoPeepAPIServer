@@ -32,7 +32,6 @@ namespace APIBackEnd.Models
     {
         UpVote = 1,
         DownVote = 0,
-        Null = 2,
-
+        Null = 2
     }
 }

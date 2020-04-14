@@ -38,9 +38,13 @@ namespace APIBackEnd.Models.Service
             return ActivitiesDTO;
         }
         //used to remove an activity
-        public Task DeleteActivities(int ID)
+        public async Task DeleteActivities(int ID)
         {
-            throw new NotImplementedException();
+            var activities = await _context.Activities.FindAsync(ID);
+
+            _context.Remove(activities);
+
+            await _context.SaveChangesAsync();
         }
         //used to retrieve an activity by it's ID
         public Task<Activities> GetActivity(int ID)
