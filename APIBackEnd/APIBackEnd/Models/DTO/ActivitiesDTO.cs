@@ -18,10 +18,8 @@ namespace APIBackEnd.Models.DTO
         public string ExternalLink { get; set; }
         public string ImageUrl { get; set; }
 
-
-
-        //naviggation properties
         public List<ReviewsDTO> Reviews = new List<ReviewsDTO>();
+
         public List<Tag> Tag = new List<Tag>();
 
     }

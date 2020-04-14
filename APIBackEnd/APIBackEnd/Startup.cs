@@ -34,6 +34,12 @@ namespace APIBackEnd
             services.AddDbContext<BoPeepDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            // handling Json
+            services.AddControllers()
+              .AddNewtonsoftJson(options =>
+              options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+              );
+
             services.AddTransient<IActivityManager, ActivityService>();
             services.AddTransient<IReviewManager, ReviewsService>();
 

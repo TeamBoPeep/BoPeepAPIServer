@@ -17,7 +17,8 @@ namespace APIBackEnd.Models
         public string ImageUrl { get; set; }
 
         //naviggation properties
-        public List<Reviews> Reviews = new List<Reviews>();
+        public List<ActivitiesReviews> ActivitiesReviews = new List<ActivitiesReviews>();
+
         public List<TagActivity> TagActivity = new List<TagActivity>();
 
 

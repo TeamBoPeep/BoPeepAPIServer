@@ -7,13 +7,12 @@ namespace APIBackEnd.Models
 {
     public class Reviews
     {
-        public int ActivitiesId { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
         //navigation property
-        public Activities Activities { get; set; }
+        public List<ActivitiesReviews> ActivitiesReviews = new List<ActivitiesReviews>();
         //public UserNames UserNames { get; set; }
     }
 

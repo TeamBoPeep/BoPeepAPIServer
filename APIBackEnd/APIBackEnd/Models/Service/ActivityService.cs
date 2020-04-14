@@ -86,18 +86,14 @@ namespace APIBackEnd.Models.Service
 
         public async Task<List<ReviewsDTO>> GetReviewsById(int ID)
         {
-            var reviews = await _context.Reviews.Where(x => x.ActivitiesId == ID)
+            var reviews = await _context.ActivitiesReviews.Where(x => x.ActivitiesID == ID)
                                                 .ToListAsync();
             List<ReviewsDTO> rDTOList = new List<ReviewsDTO>();
             foreach (var item in reviews)
             {
-                ReviewsDTO rDTO = new ReviewsDTO()
-                {
-                    Id = item.Id,
-                    Description = item.Description,
-                    Name = item.Name
-                };
-                rDTOList.Add(rDTO);
+
+                ReviewsDTO review = await _reviewContext.GetReviews(item.ReviewsID);
+                rDTOList.Add(review);
 
             }
             return rDTOList;
