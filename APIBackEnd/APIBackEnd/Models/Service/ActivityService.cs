@@ -1,6 +1,7 @@
 ﻿using APIBackEnd.Data;
 using APIBackEnd.Models.DTO;
 using APIBackEnd.Models.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,20 +48,32 @@ namespace APIBackEnd.Models.Service
             await _context.SaveChangesAsync();
         }
         //used to retrieve an activity by it's ID
-        public Task<Activities> GetActivity(int ID)
+        public  async Task<ActivitiesDTO> GetActivity(int ID)
         {
-            throw new NotImplementedException();
+            var Activity = await _context.Activities.FindAsync(ID);
+            ActivitiesDTO dTO = ConvertToDTO(Activity);
+            return dTO;
         }
         //Used to get all the activities in the table
-        public Task<List<Activities>> GetAllActivities()
+        public async Task<List<ActivitiesDTO>> GetAllActivities()
         {
-            throw new NotImplementedException();
+
+            List<ActivitiesDTO> aDTO = new List<ActivitiesDTO>();
+            List<Activities> activities = await _context.Activities.ToListAsync();
+            foreach (var item in activities)
+            {
+                ActivitiesDTO dTO = ConvertToDTO(item);
+                aDTO.Add(dTO);
+                
+            }
+            return aDTO;
         }
 
         //changes an activity already in the table (name, description, tags)
-        public Task UpdateActivities()
+        public async Task UpdateActivities(Activities activities)
         {
-            throw new NotImplementedException();
+            _context.Update(activities);
+            await _context.SaveChangesAsync();
         }
         private ActivitiesDTO ConvertToDTO(Activities activities)
         {
