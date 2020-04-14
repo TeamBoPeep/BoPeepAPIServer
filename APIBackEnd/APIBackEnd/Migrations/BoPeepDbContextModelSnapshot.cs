@@ -190,6 +190,58 @@ namespace APIBackEnd.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Tag");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Names = "Flora/fauna"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Names = "Exercise"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Names = "Games"
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Names = "Social"
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Names = "Pets"
+                        },
+                        new
+                        {
+                            ID = 6,
+                            Names = "Arts&Crafts"
+                        },
+                        new
+                        {
+                            ID = 7,
+                            Names = "Self care"
+                        },
+                        new
+                        {
+                            ID = 8,
+                            Names = "Online"
+                        },
+                        new
+                        {
+                            ID = 9,
+                            Names = "Productive"
+                        },
+                        new
+                        {
+                            ID = 10,
+                            Names = "Baking/Cooking"
+                        });
                 });
 
             modelBuilder.Entity("APIBackEnd.Models.TagActivity", b =>
