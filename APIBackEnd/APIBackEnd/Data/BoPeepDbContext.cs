@@ -16,6 +16,7 @@ namespace APIBackEnd.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TagActivity>().HasKey(x => new { x.ActivitiesId, x.TagId });
+            modelBuilder.Entity<Reviews>().HasKey(x => new { x.ActivitiesId, x.Id });
             modelBuilder.Entity<Activities>().HasData(
             //Dummy data for out Activities table
             new Activities
