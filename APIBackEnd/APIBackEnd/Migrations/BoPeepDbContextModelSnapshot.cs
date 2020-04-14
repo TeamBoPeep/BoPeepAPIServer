@@ -32,6 +32,9 @@ namespace APIBackEnd.Migrations
                     b.Property<string>("ExternalLink")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Location")
                         .HasColumnType("int");
 
@@ -72,7 +75,7 @@ namespace APIBackEnd.Migrations
                         new
                         {
                             ID = 3,
-                            Description = "Better than a hike! You've got compan to help you stop and smell the roses",
+                            Description = "Better than a hike! You've got companion to help you stop and smell the roses",
                             ExternalLink = "N/A",
                             Location = 0,
                             Rate = 1,
