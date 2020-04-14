@@ -8,6 +8,8 @@ namespace APIBackEnd.Models.Interface
 {
     public interface IActivityManager
     {
+        Task<List<ReviewsDTO>> GetReviewsById(int ID);
+
         //create
         Task<ActivitiesDTO> CreateActivity(Activities activities);
         //read

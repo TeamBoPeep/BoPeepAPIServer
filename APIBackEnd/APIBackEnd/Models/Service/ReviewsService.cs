@@ -63,7 +63,7 @@ namespace APIBackEnd.Models.Service
         {
             ReviewsDTO rDTO = new ReviewsDTO()
             {
-                Id = reviews.Id,
+                ActivitiesId = reviews.ActivitiesId,
                 Description = reviews.Description,
                 Name = reviews.Name
             };

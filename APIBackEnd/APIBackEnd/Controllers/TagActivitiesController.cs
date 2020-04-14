@@ -21,59 +21,6 @@ namespace APIBackEnd.Controllers
             _context = context;
         }
 
-        // GET: api/TagActivities
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<TagActivity>>> GetTagActivity()
-        {
-            return await _context.TagActivity.ToListAsync();
-        }
-
-        // GET: api/TagActivities/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TagActivity>> GetTagActivity(int id)
-        {
-            var tagActivity = await _context.TagActivity.FindAsync(id);
-
-            if (tagActivity == null)
-            {
-                return NotFound();
-            }
-
-            return tagActivity;
-        }
-
-        // PUT: api/TagActivities/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutTagActivity(int id, TagActivity tagActivity)
-        {
-            if (id != tagActivity.ActivitiesId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(tagActivity).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TagActivityExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/TagActivities
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
