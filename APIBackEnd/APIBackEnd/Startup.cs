@@ -35,6 +35,7 @@ namespace APIBackEnd
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IActivityManager, ActivityService>();
+            services.AddTransient<IReviewManager, ReviewsService>();
 
         }
 
