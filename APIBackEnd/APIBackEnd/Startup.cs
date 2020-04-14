@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using APIBackEnd.Data;
+using APIBackEnd.Models.Interface;
+using APIBackEnd.Models.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,6 +33,9 @@ namespace APIBackEnd
             services.AddMvc();
             services.AddDbContext<BoPeepDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<IActivityManager, ActivityService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
