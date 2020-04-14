@@ -11,11 +11,11 @@ namespace APIBackEnd.Models.Interface
         //create
         Task<ActivitiesDTO> CreateActivity(Activities activities);
         //read
-        Task<Activities> GetActivity(int ID);
+        Task<ActivitiesDTO> GetActivity(int ID);
         //readAll
-        Task<List<Activities>> GetAllActivities();
+        Task<List<ActivitiesDTO>> GetAllActivities();
         //update
-        Task UpdateActivities();
+        Task UpdateActivities(Activities activities);
         //delete
         Task DeleteActivities(int ID);
 

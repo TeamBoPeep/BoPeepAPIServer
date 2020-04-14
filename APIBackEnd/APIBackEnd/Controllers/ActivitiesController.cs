@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APIBackEnd.Data;
 using APIBackEnd.Models;
+using APIBackEnd.Models.Interface;
+using APIBackEnd.Models.DTO;
 
 namespace APIBackEnd.Controllers
 {
@@ -15,25 +17,23 @@ namespace APIBackEnd.Controllers
   
     public class ActivitiesController : ControllerBase
     {
-        private readonly BoPeepDbContext _context;
+        private readonly IActivityManager _context;
 
-        public ActivitiesController(BoPeepDbContext context)
+        public ActivitiesController(IActivityManager context)
         {
             _context = context;
         }
 
         // GET: api/Activities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Activities>>> GetActivities()
-        {
-            return await _context.Activities.ToListAsync();
-        }
+        public async Task<ActionResult<IEnumerable<ActivitiesDTO>>> GetActivities() => await _context.GetAllActivities();
 
         // GET: api/Activities/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Activities>> GetActivities(int id)
+        public async Task<ActionResult<ActivitiesDTO>> GetActivities(int id)
         {
-            var activities = await _context.Activities.FindAsync(id);
+            var activities = await _context.GetActivity(id);
+
 
             if (activities == null)
             {
@@ -47,32 +47,9 @@ namespace APIBackEnd.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutActivities(int id, Activities activities)
-        {
-            if (id != activities.ID)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(activities).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ActivitiesExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+        public async Task PutActivities(int id, Activities activities)
+        {              
+            await _context.UpdateActivities(activities);
         }
 
         // POST: api/Activities
@@ -81,31 +58,17 @@ namespace APIBackEnd.Controllers
         [HttpPost]
         public async Task<ActionResult<Activities>> PostActivities(Activities activities)
         {
-            _context.Activities.Add(activities);
-            await _context.SaveChangesAsync();
+            await _context.CreateActivity(activities);
 
             return CreatedAtAction("GetActivities", new { id = activities.ID }, activities);
         }
 
         // DELETE: api/Activities/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Activities>> DeleteActivities(int id)
+        public async Task DeleteActivities(int id)
         {
-            var activities = await _context.Activities.FindAsync(id);
-            if (activities == null)
-            {
-                return NotFound();
-            }
-
-            _context.Activities.Remove(activities);
-            await _context.SaveChangesAsync();
-
-            return activities;
+            await _context.DeleteActivities(id);
         }
 
-        private bool ActivitiesExists(int id)
-        {
-            return _context.Activities.Any(e => e.ID == id);
-        }
     }
 }
