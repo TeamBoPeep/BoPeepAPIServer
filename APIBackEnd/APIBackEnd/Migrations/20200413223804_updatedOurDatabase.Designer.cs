@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIBackEnd.Migrations
 {
     [DbContext(typeof(BoPeepDbContext))]
-    [Migration("20200413213625_initial")]
-    partial class initial
+    [Migration("20200413223804_updatedOurDatabase")]
+    partial class updatedOurDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,108 @@ namespace APIBackEnd.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Activities");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Description = "A nice stroll outside to enjoy nature and fresh air",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Hike/trails"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Description = "A chance to enjoy nature without movement, also good to enjoy with your cat",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Bird watching"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Description = "Better than a hike! You've got compan to help you stop and smell the roses",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Dog/cat walking"
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Description = "grow veggies, flowers and fruit",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Gardening"
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Description = "Get a nice bite to eat, for free!",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Dumpster Diving"
+                        },
+                        new
+                        {
+                            ID = 6,
+                            Description = "Time to slay dragons and drink mead",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Games"
+                        },
+                        new
+                        {
+                            ID = 7,
+                            Description = "Blood pumping and brain working",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Exercise"
+                        },
+                        new
+                        {
+                            ID = 8,
+                            Description = "Art, cooking or C#, the options are endless",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Learning"
+                        },
+                        new
+                        {
+                            ID = 9,
+                            Description = "Aloe, succulents and anything else your cat won't eat",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Terrariums"
+                        },
+                        new
+                        {
+                            ID = 10,
+                            Description = "be social while social distancing",
+                            ExternalLink = "N/A",
+                            Location = 0,
+                            Rate = 1,
+                            Rating = 4.5,
+                            Title = "Facetime/video calls"
+                        });
                 });
 
             modelBuilder.Entity("APIBackEnd.Models.Reviews", b =>
