@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace APIBackEnd.Models
 {
+    /// <summary>
+    /// Model for our UserName Table possibly used in the future
+    /// </summary>
     public class UserName
     {
         public int ID { get; set; }

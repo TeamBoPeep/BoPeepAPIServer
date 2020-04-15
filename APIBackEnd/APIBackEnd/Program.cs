@@ -9,6 +9,9 @@ using Microsoft.Extensions.Logging;
 
 namespace APIBackEnd
 {
+    /// <summary>
+    /// Firing up our backend application
+    /// </summary>
     public class Program
     {
         public static void Main(string[] args)

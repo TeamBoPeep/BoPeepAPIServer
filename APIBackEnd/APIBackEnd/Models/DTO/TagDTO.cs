@@ -9,7 +9,5 @@ namespace APIBackEnd.Models.DTO
     {
         public int Id { get; set; }
         public string Names { get; set; }
-
-        public List<ActivitiesDTO> ActivitiesDTOs = new List<ActivitiesDTO>();
     }
 }
