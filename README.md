@@ -1,8 +1,6 @@
-# BoPeepAPIServer (Project TBA)
+# Bored To Death - *The Boredom Killer*
 
-
-
-### We are deployed on Azure!
+### Deployed API
 
 https://bobeepapi.azurewebsites.net/api
 
@@ -12,18 +10,22 @@ https://bobeepapi.azurewebsites.net/api
 
 [Brody Rebne](https://github.com/brody-rebne)  
 [Harlen Lopez](https://github.com/harlenlopez)  
-[Harry CogsWell](https://github.com/HCoggers)  
+[Harry Cogswell](https://github.com/HCoggers)  
 [Jin Kim](https://github.com/jinwoov)  
 [Rosalyn Johnson](https://github.com/rosbobos)
 
 ---
 ## Visual
 
-![Activities](./assets/Activities.png)
-Screen shot of our activities API
+### Screenshot of tags API
+![Tags](./assets/Tag.png)
 
-![Tags](./assets/Tags.png)
-Screen shot of our tags API
+### Screenshot of activities API
+![Activities](./assets/Activities.png)
+
+### Screenshot of reviews API
+![Review](./assets/Review.png)
+
 
 ---
 
@@ -46,8 +48,9 @@ Microsoft Visual Studio Community 2019
 ---
 
 ## Change Logs
-- *Reviews, activities, and tags are linked together* April 14 2020
-- *Routes are created for all of the models* April 14 2020
-- *Routes created for activities* April 13 2020
-- *Created MVC files and deployed website* April 13 2020
-- *Initialized README document* April 13 2020
+1.0 - *Doucmentation is updated and site is fully functional* April 14 2020  
+0.5 - *Reviews, activities, and tags are linked together* April 14 2020  
+0.4 - *Routes are created for all of the models* April 14 2020  
+0.3 - *Routes created for activities* April 13 2020  
+0.2 - *Created MVC files and deployed website* April 13 2020  
+0.1 - *Initialized README document* April 13 2020  
