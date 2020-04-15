@@ -1,13 +1,14 @@
-﻿using System;
+﻿using APIBackEnd.Models.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace APIBackEnd.Models.Interface
 {
-    interface ITagManager
+    public interface ITagManager
     {
-        Task<TagDTO> CreateTag(Tag tag);
+        Task<TagDTO> CreateTag(TagDTO tagDTO);
         //read
         Task<TagDTO> GetTag(int ID);
         //readAll
@@ -15,7 +16,7 @@ namespace APIBackEnd.Models.Interface
         //update
         Task UpdateTag(Tag tag);
         //delete
-        Task DeleteTag(int ID);
-
+        Task DeleteTag(int ID); 
     }
+
 }
