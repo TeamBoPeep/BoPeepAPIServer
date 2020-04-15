@@ -18,6 +18,9 @@ namespace APIBackEnd.Controllers
     {
         private readonly IReviewManager _context;
 
+        /// <summary>
+        /// Constructor that implements IReviewManager
+        /// </summary>
         public ReviewsController(IReviewManager context)
         {
             _context = context;

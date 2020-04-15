@@ -13,6 +13,11 @@ namespace APIBackEnd.Data
         {
 
         }
+
+        /// <summary>
+        ///  This lies where our composite keys are constituted and seeded data are added
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TagActivity>().HasKey(x => new { x.ActivitiesId, x.TagId });
@@ -186,6 +191,10 @@ namespace APIBackEnd.Data
             );
 
         }
+
+        /// <summary>
+        /// Sets of model that will be added to the database
+        /// </summary>
         public DbSet<Activities> Activities { get; set; }
         public DbSet<Reviews> Reviews { get; set; }
 
