@@ -26,7 +26,7 @@ Swagger Site: https://bobeepapi.azurewebsites.net/swagger/index.html
 ![Tags](./assets/Tag.png)
 
 ### Screenshot of activities API
-![Activities](./assets/Activities.png)
+![Activities](./assets/actvity.png)
 
 ### Screenshot of reviews API
 ![Review](./assets/Review.png)
