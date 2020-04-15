@@ -27,7 +27,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = 0,
-                ExternalLink = "N/A"
+                ExternalLink = "https://www.wta.org/?gclid=CjwKCAjwvtX0BRAFEiwAGWJyZJMy_TIYVTxTlNY1u8DtYnwh-hfOyaf4tLByYfEdTrqNR2JbN8hk5xoC2-4QAvD_BwE",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/hiking%20(1).jpg"
             },
             new Activities
             {
@@ -37,7 +38,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = (Location)1,
-                ExternalLink = "N/A"
+                ExternalLink = "https://www.seattleaudubon.org/sas/getinvolved/gobirding.aspx",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/birdWatching%20(1).jpg"
             },
             new Activities
             {
@@ -47,7 +49,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = 0,
-                ExternalLink = "N/A"
+                ExternalLink = "N/A",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/dogCatWalking%20(1).jpg"
             },
             new Activities
             {
@@ -57,7 +60,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = 0,
-                ExternalLink = "N/A"
+                ExternalLink = "N/A",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/gardening%20(1).jpg"
             },
             new Activities
             {
@@ -67,7 +71,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = 0,
-                ExternalLink = "N/A"
+                ExternalLink = "N/A",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/dumpsterdiving%20(1).jpg"
             },
             new Activities
             {
@@ -77,7 +82,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = 0,
-                ExternalLink = "N/A"
+                ExternalLink = "N/A",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/games%20(1).jpg"
             },
             new Activities
             {
@@ -87,7 +93,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = 0,
-                ExternalLink = "N/A"
+                ExternalLink = "N/A",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/exercise%20(1).jpg"
             },
             new Activities
             {
@@ -97,7 +104,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = 0,
-                ExternalLink = "N/A"
+                ExternalLink = "N/A",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/learning%20(1).jpg"
             },
             new Activities
             {
@@ -107,7 +115,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = 0,
-                ExternalLink = "N/A"
+                ExternalLink = "http://serpadesign.com/",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/pottedPlants%20(1).jpg"
             },
             new Activities
             {
@@ -117,7 +126,8 @@ namespace APIBackEnd.Data
                 Rate = (Rate)1,
                 Rating = 4.50,
                 Location = 0,
-                ExternalLink = "N/A"
+                ExternalLink = "N/A",
+                ImageUrl = "https://github.com/TeamBoPeep/BoPeepMVCApp/blob/dev-master/BoPeepMVC/BoPeepMVC/wwwroot/assets/facetime%20(1).jpg"
             }
             );
 
