@@ -52,7 +52,17 @@ namespace APIBackEnd.Models.Service
                 Rate = (Rate)activitiesDTO.Rate,
                 Rating = activitiesDTO.Rating, 
                 ExternalLink = activitiesDTO.ExternalLink != null ? activitiesDTO.ExternalLink : "",
-                ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : ""
+                ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : "",
+                
+            };
+            foreach (var item in activitiesDTO.TagDTO)
+            {
+                Tag tag = new Tag()
+                {
+                    ID = item.Id,
+                    Names = item.Names
+                };
+                await _tagContext.CreateTag(item)
             };
             _context.Add(activities);
             await _context.SaveChangesAsync();
