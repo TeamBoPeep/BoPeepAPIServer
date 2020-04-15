@@ -18,32 +18,44 @@ namespace APIBackEnd.Controllers
     {
         private readonly ITagManager _context;
 
+        /// <summary>
+        /// Contructor that will take our interface to use it as context
+        /// </summary>
+        /// <param name="context">ITagManger interface</param>
         public TagsController(ITagManager context)
         {
             _context = context;
         }
 
-        // GET: api/Tags
+        /// <summary>
+        /// Get route for our tags
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TagDTO>>> GetTag() => await _context.GetAllTags();
 
 
 
-        // GET: api/Tags/5
+        /// <summary>
+        /// Get route for our a tag
+        /// </summary>
+        /// <param name="id">takes in the param id</param>
         [HttpGet("{id}")]
         public async Task<ActionResult<TagDTO>> GetTag(int id) => await _context.GetTag(id);
 
 
-        // PUT: api/Tags/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Update the tag
+        /// </summary>
+        /// <param name="tag">tag that will be used to update the database</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task PutTag(int id, Tag tag) => await _context.UpdateTag(tag);
+        public async Task PutTag(Tag tag) => await _context.UpdateTag(tag);
 
 
-        // POST: api/Tags
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Post method that will create a tag
+        /// </summary>
+        /// <param name="tagDTO">tag dto from front end</param>
         [HttpPost]
         public async Task<ActionResult<Tag>> PostTag(TagDTO tagDTO)
         {
@@ -52,7 +64,10 @@ namespace APIBackEnd.Controllers
 
         }
 
-        // DELETE: api/Tags/5
+        /// <summary>
+        /// Delete method that will delete specific tag that is passed in as ID
+        /// </summary>
+        /// <param name="id">id that is in the route</param>
         [HttpDelete("{id}")]
         public async Task DeleteTag(int id) => await _context.DeleteTag(id);
     }

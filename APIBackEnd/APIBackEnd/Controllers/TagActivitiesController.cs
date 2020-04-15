@@ -16,14 +16,18 @@ namespace APIBackEnd.Controllers
     {
         private readonly BoPeepDbContext _context;
 
+        /// <summary>
+        /// Contructor that brings in dbcontext
+        /// </summary>
         public TagActivitiesController(BoPeepDbContext context)
         {
             _context = context;
         }
 
-        // POST: api/TagActivities
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Post method for pure join table
+        /// </summary>
+        /// <param name="tagActivity">the content that will be added to the table</param>
         [HttpPost]
         public async Task<ActionResult<TagActivity>> PostTagActivity(TagActivity tagActivity)
         {
@@ -47,7 +51,10 @@ namespace APIBackEnd.Controllers
             return CreatedAtAction("GetTagActivity", new { id = tagActivity.ActivitiesId }, tagActivity);
         }
 
-        // DELETE: api/TagActivities/5
+        /// <summary>
+        /// Delete method that willl delete the tag from activity
+        /// </summary>
+        /// <param name="id">route id</param>
         [HttpDelete("{id}")]
         public async Task<ActionResult<TagActivity>> DeleteTagActivity(int id)
         {
@@ -62,7 +69,9 @@ namespace APIBackEnd.Controllers
 
             return tagActivity;
         }
-
+        /// <summary>
+        /// check if the id exists
+        /// </summary>
         private bool TagActivityExists(int id)
         {
             return _context.TagActivity.Any(e => e.ActivitiesId == id);

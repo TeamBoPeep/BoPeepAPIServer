@@ -17,6 +17,15 @@ https://bobeepapi.azurewebsites.net/api
 [Rosalyn Johnson](https://github.com/rosbobos)
 
 ---
+## Visual
+
+![Activities](./assets/Activities.png)
+Screen shot of our activities API
+
+![Tags](./assets/Tags.png)
+Screen shot of our tags API
+
+---
 
 ## Web Application
 
@@ -32,10 +41,13 @@ Microsoft Visual Studio Community 2019
 - Entity Framework
 - MVC
 - Azure
+- Postman
 
 ---
 
 ## Change Logs
-- *Routes created for activites* April 13 2020
+- *Reviews, activities, and tags are linked together* April 14 2020
+- *Routes are created for all of the models* April 14 2020
+- *Routes created for activities* April 13 2020
 - *Created MVC files and deployed website* April 13 2020
-- *Initalized README document* April 13 2020
+- *Initialized README document* April 13 2020
