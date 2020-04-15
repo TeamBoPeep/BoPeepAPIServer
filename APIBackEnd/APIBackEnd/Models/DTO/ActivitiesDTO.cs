@@ -18,6 +18,8 @@ namespace APIBackEnd.Models.DTO
         public string ExternalLink { get; set; }
         public string ImageUrl { get; set; }
 
+        public List<TagDTO> Tags = new List<TagDTO>();
+
         public List<ReviewsDTO> Reviews = new List<ReviewsDTO>();
 
         public List<TagDTO> TagDTO = new List<TagDTO>();

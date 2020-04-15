@@ -52,10 +52,27 @@ namespace APIBackEnd.Models.Service
                 Rate = (Rate)activitiesDTO.Rate,
                 Rating = activitiesDTO.Rating, 
                 ExternalLink = activitiesDTO.ExternalLink != null ? activitiesDTO.ExternalLink : "",
-                ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : ""
+                ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : "",
+                
             };
+             
             _context.Add(activities);
             await _context.SaveChangesAsync();
+            var lastActivity = await _context.Activities.Where(x => x.Title == activitiesDTO.Title)
+                                                  .SingleAsync();
+            foreach (var item in activitiesDTO.Tags)
+            {
+                var tagged = await _context.Tag.Where(x => x.Names == item.Name)
+                                         .SingleAsync();
+                TagActivity tagActivity = new TagActivity()
+                {
+                    ActivitiesId = lastActivity.ID,
+                    TagId = tagged.ID
+                };
+                _context.Add(tagActivity);
+                await _context.SaveChangesAsync();
+
+            }
             return activitiesDTO;
         }
         //used to remove an activity
