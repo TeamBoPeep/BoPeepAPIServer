@@ -4,6 +4,8 @@
 
 https://bobeepapi.azurewebsites.net/api
 
+Swagger Site: https://bobeepapi.azurewebsites.net/swagger/index.html
+
 ---
 
 ## Authors
@@ -16,6 +18,9 @@ https://bobeepapi.azurewebsites.net/api
 
 ---
 ## Visual
+
+### ERD
+![ERD](./assets/ERD.png)
 
 ### Screenshot of tags API
 ![Tags](./assets/Tag.png)
@@ -48,7 +53,7 @@ Microsoft Visual Studio Community 2019
 ---
 
 ## Change Logs
-1.0 - *Doucmentation is updated and site is fully functional* April 14 2020  
+1.0 - *Documentation is updated and site is fully functional* April 14 2020  
 0.5 - *Reviews, activities, and tags are linked together* April 14 2020  
 0.4 - *Routes are created for all of the models* April 14 2020  
 0.3 - *Routes created for activities* April 13 2020  
