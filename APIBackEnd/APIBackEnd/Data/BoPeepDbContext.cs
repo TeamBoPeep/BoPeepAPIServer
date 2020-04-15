@@ -33,7 +33,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = 0,
                 ExternalLink = "https://www.wta.org/?gclid=CjwKCAjwvtX0BRAFEiwAGWJyZJMy_TIYVTxTlNY1u8DtYnwh-hfOyaf4tLByYfEdTrqNR2JbN8hk5xoC2-4QAvD_BwE",
-                ImageUrl = "https://photos.app.goo.gl/PXCJFTwwt1FhF8USA"
+                ImageUrl = "https://photos.app.goo.gl/VwiATQcEmoGkmjNb9"
             },
             new Activities
             {
@@ -44,7 +44,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = (Location)1,
                 ExternalLink = "https://www.seattleaudubon.org/sas/getinvolved/gobirding.aspx",
-                ImageUrl = "https://photos.app.goo.gl/sU8uy8dU5GMWbr5K7"
+                ImageUrl = "https://photos.app.goo.gl/KKhASik7AVioTz9r9"
             },
             new Activities
             {
@@ -55,7 +55,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = 0,
                 ExternalLink = "N/A",
-                ImageUrl = "https://photos.app.goo.gl/Q5ZuBaUcJXeFJ6bW8"
+                ImageUrl = "https://photos.app.goo.gl/xoRc7LsaQn9JXEfA9"
             },
             new Activities
             {
@@ -66,7 +66,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = 0,
                 ExternalLink = "N/A",
-                ImageUrl = "https://photos.app.goo.gl/PGfKPx3LPi2yUQTD8"
+                ImageUrl = "https://photos.app.goo.gl/cknW2GGkCC9hKNwx6"
             },
             new Activities
             {
@@ -77,7 +77,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = 0,
                 ExternalLink = "N/A",
-                ImageUrl = "https://photos.app.goo.gl/QCVaJvDjofFcBVRQ8"
+                ImageUrl = "https://photos.app.goo.gl/kmLEkS6xmE3q6VSr5"
             },
             new Activities
             {
@@ -88,7 +88,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = 0,
                 ExternalLink = "N/A",
-                ImageUrl = "https://photos.app.goo.gl/i77msdULDKig3JLGA"
+                ImageUrl = "https://photos.app.goo.gl/c1145jDRGZJChSkT8"
             },
             new Activities
             {
@@ -99,7 +99,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = 0,
                 ExternalLink = "N/A",
-                ImageUrl = "https://photos.app.goo.gl/tkKyaR6y1of14itm7"
+                ImageUrl = "https://photos.app.goo.gl/fExYrBfPvsroKzfs6"
             },
             new Activities
             {
@@ -110,7 +110,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = 0,
                 ExternalLink = "N/A",
-                ImageUrl = "https://photos.app.goo.gl/hfNskNLt85WBjCoU7"
+                ImageUrl = "https://photos.app.goo.gl/FENqHw19himsaDEZ9"
             },
             new Activities
             {
@@ -121,7 +121,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = 0,
                 ExternalLink = "http://serpadesign.com/",
-                ImageUrl = "https://photos.app.goo.gl/Ek1Vvfb87hcy5fKZ7"
+                ImageUrl = "https://photos.app.goo.gl/hTKgacuUNjegWq2u9"
             },
             new Activities
             {
@@ -132,7 +132,7 @@ namespace APIBackEnd.Data
                 Rating = 4.50,
                 Location = 0,
                 ExternalLink = "N/A",
-                ImageUrl = "https://photos.app.goo.gl/icHoVn4wBi6B7HmZ9"
+                ImageUrl = "https://photos.app.goo.gl/cQYoMM3UHax4i9g2A"
             }
             );
 
