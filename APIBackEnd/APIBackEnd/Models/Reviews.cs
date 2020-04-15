@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace APIBackEnd.Models
 {
+    /// <summary>
+    /// Review model table 
+    /// </summary>
     public class Reviews
     {
         public int Id { get; set; }

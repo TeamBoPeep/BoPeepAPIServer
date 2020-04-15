@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace APIBackEnd.Models
 {
+    /// <summary>
+    /// PURE JOIN TABLE  
+    /// </summary>
     public class ActivitiesReviews
     {
         public int ActivitiesID { get; set; }

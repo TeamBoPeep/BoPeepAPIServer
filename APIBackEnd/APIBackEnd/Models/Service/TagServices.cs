@@ -12,12 +12,10 @@ namespace APIBackEnd.Models.Service
     public class TagServices : ITagManager
     {
         private BoPeepDbContext _context;
-        //private IActivityManager _activityContext;
 
         public TagServices(BoPeepDbContext context)
         {
             _context = context;
-            //_activityContext = activityContext;
         }
 
         public async Task<TagDTO> CreateTag(TagDTO tagDTO)
@@ -32,6 +30,11 @@ namespace APIBackEnd.Models.Service
             return tagDTO;
         }
 
+        /// <summary>
+        /// Deleting the tag from the database
+        /// </summary>
+        /// <param name="ID">id of </param>
+        /// <returns></returns>
         public async Task DeleteTag(int ID)
         {
             var tag = await _context.Tag.FindAsync(ID);
@@ -39,6 +42,10 @@ namespace APIBackEnd.Models.Service
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Getting all the tags from database
+        /// </summary>
+        /// <returns>List of all the tags</returns>
         public async Task<List<TagDTO>> GetAllTags()
         {
             List<TagDTO> TagList = new List<TagDTO>();
@@ -52,34 +59,34 @@ namespace APIBackEnd.Models.Service
             return TagList;
         }
 
+        /// <summary>
+        /// Get tags by their ID
+        /// </summary>
+        /// <param name="ID">ID that is passed in the route</param>
+        /// <returns>DTO tag</returns>
         public async Task<TagDTO> GetTag(int ID)
         {
             var tag = await _context.Tag.FindAsync(ID);
             TagDTO tDTO = ConvertToDTO(tag);
-            //tDTO.ActivitiesDTOs = await getActivitiesByTagId(ID);
             return tDTO;
         }
 
+        /// <summary>
+        /// Update method that will take in tag and store it
+        /// </summary>
+        /// <param name="tag">Tag object from the front end</param>
         public async Task UpdateTag(Tag tag)
         {
             _context.Update(tag);
             await _context.SaveChangesAsync();
 
         }
-        //public async Task<List<ActivitiesDTO>> getActivitiesByTagId(int Id)
-        //{
-        //    var Activities = await _context.TagActivity.Where(x => x.TagId == Id)
-        //                                               .ToListAsync();
-        //    List<ActivitiesDTO> aDTO = new List<ActivitiesDTO>();
-        //    foreach (var item in Activities)
-        //    {
-        //        ActivitiesDTO dTO = await _activityContext.GetActivity(Id);
-        //        aDTO.Add(dTO);
 
-        //    }
-        //    return aDTO;
-        //}
-
+        /// <summary>
+        /// Converting tag to DTO
+        /// </summary>
+        /// <param name="tag">tag object</param>
+        /// <returns>DTO tag object</returns>
         private TagDTO ConvertToDTO(Tag tag)
         {
             TagDTO tDTO = new TagDTO()

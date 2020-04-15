@@ -18,13 +18,18 @@ namespace APIBackEnd.Models.Service
         private IReviewManager _reviewContext;
         private ITagManager _tagContext;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="reviewContext"></param>
+        /// <param name="tagContext"></param>
         public ActivityService(BoPeepDbContext context, IReviewManager reviewContext, ITagManager tagContext)
         {
             _context = context;
             _reviewContext = reviewContext;
             _tagContext = tagContext;
 
-            
         }
         /// <summary>
         /// Allows us to create the activities as well as utilize our DTOs to normalize the data
@@ -132,7 +137,8 @@ namespace APIBackEnd.Models.Service
                 Location = activities.Location.ToString(),
                 Rate = Convert.ToInt32(activities.Rate),
                 ExternalLink = activities.ExternalLink,
-                Rating = activities.Rating
+                Rating = activities.Rating,
+                ImageUrl = activities.ImageUrl
             };
             return aDTO;
         }

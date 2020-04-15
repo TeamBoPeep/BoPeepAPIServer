@@ -20,6 +20,9 @@ namespace APIBackEnd
     public class Startup
     {
         public IConfiguration Configuration { get;}
+        /// <summary>
+        /// Constructor for Startup class which will allow secret json to be used
+        /// </summary>
         public Startup()
         {
             var builder = new ConfigurationBuilder()
@@ -31,17 +34,19 @@ namespace APIBackEnd
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            /// Using the Mvc as our middle ware
             services.AddMvc();
+            /// Setting our database schema to default connection
             services.AddDbContext<BoPeepDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            // handling Json
+            //// handling Refernce looping using Newtonsoft
             services.AddControllers()
               .AddNewtonsoftJson(options =>
               options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
               );
 
-            // Swagger
+            // Using Implementing swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Be Peep API", Version = "v1" });
@@ -57,9 +62,9 @@ namespace APIBackEnd
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseDeveloperExceptionPage();
-
+            /// Using the Swagger
             app.UseSwagger();
-
+            /// The UI fro Swagger
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Be Peep API");

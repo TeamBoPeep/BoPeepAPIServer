@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace APIBackEnd.Models
 {
+    /// <summary>
+    /// Tag schema that will create a table
+    /// </summary>
     public class Tag
     {
         public int ID { get; set; }
