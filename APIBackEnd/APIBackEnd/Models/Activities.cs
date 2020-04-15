@@ -16,7 +16,7 @@ namespace APIBackEnd.Models
         public string ExternalLink { get; set; }
         public string ImageUrl { get; set; }
 
-        //naviggation properties
+        //navigation properties
         public List<ActivitiesReviews> ActivitiesReviews = new List<ActivitiesReviews>();
 
         public List<TagActivity> TagActivity = new List<TagActivity>();
@@ -31,8 +31,8 @@ namespace APIBackEnd.Models
     }
     public enum Rate
     {
-        UpVote = 1,
-        DownVote = 0,
+        UpVote = 0,
+        DownVote = 1,
         Null = 2
     }
 }

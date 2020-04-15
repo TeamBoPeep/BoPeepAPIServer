@@ -49,7 +49,7 @@ namespace APIBackEnd.Controllers
         /// <param name="tag">tag that will be used to update the database</param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task PutTag(Tag tag) => await _context.UpdateTag(tag);
+        public async Task PutTag(int id, Tag tag) => await _context.UpdateTag(tag);
 
 
         /// <summary>
