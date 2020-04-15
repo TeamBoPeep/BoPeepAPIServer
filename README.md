@@ -4,6 +4,8 @@
 
 https://bobeepapi.azurewebsites.net/api
 
+Swagger Site: https://bobeepapi.azurewebsites.net/swagger/index.html
+
 ---
 
 ## Authors
