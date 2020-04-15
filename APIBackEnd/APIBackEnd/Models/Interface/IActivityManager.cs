@@ -9,7 +9,7 @@ namespace APIBackEnd.Models.Interface
     public interface IActivityManager
     {
         Task<List<ReviewsDTO>> GetReviewsById(int ID);
-
+        Task<List<TagDTO>> GetTagbyActivityID(int Id);
         //create
         Task<ActivitiesDTO> CreateActivity(ActivitiesDTO activities);
         //read
