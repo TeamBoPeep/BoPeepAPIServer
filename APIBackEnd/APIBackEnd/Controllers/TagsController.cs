@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APIBackEnd.Data;
 using APIBackEnd.Models;
+using APIBackEnd.Models.Interface;
+using APIBackEnd.Models.DTO;
 
 namespace APIBackEnd.Controllers
 {
@@ -14,97 +16,44 @@ namespace APIBackEnd.Controllers
     [ApiController]
     public class TagsController : ControllerBase
     {
-        private readonly BoPeepDbContext _context;
+        private readonly ITagManager _context;
 
-        public TagsController(BoPeepDbContext context)
+        public TagsController(ITagManager context)
         {
             _context = context;
         }
 
         // GET: api/Tags
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tag>>> GetTag()
-        {
-            return await _context.Tag.ToListAsync();
-        }
+        public async Task<ActionResult<IEnumerable<TagDTO>>> GetTag() => await _context.GetAllTags();
+
+
 
         // GET: api/Tags/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Tag>> GetTag(int id)
-        {
-            var tag = await _context.Tag.FindAsync(id);
+        public async Task<ActionResult<TagDTO>> GetTag(int id) => await _context.GetTag(id);
 
-            if (tag == null)
-            {
-                return NotFound();
-            }
-
-            return tag;
-        }
 
         // PUT: api/Tags/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTag(int id, Tag tag)
-        {
-            if (id != tag.ID)
-            {
-                return BadRequest();
-            }
+        public async Task PutTag(int id, Tag tag) => await _context.UpdateTag(tag);
 
-            _context.Entry(tag).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TagExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
 
         // POST: api/Tags
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Tag>> PostTag(Tag tag)
+        public async Task<ActionResult<Tag>> PostTag(TagDTO tagDTO)
         {
-            _context.Tag.Add(tag);
-            await _context.SaveChangesAsync();
+            await _context.CreateTag(tagDTO);
+            return CreatedAtAction("GetTag", new { id = tagDTO.Id }, tagDTO);
 
-            return CreatedAtAction("GetTag", new { id = tag.ID }, tag);
         }
 
         // DELETE: api/Tags/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Tag>> DeleteTag(int id)
-        {
-            var tag = await _context.Tag.FindAsync(id);
-            if (tag == null)
-            {
-                return NotFound();
-            }
-
-            _context.Tag.Remove(tag);
-            await _context.SaveChangesAsync();
-
-            return tag;
-        }
-
-        private bool TagExists(int id)
-        {
-            return _context.Tag.Any(e => e.ID == id);
-        }
+        public async Task DeleteTag(int id) => await _context.DeleteTag(id);
     }
 }

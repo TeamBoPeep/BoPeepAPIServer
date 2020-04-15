@@ -20,7 +20,7 @@ namespace APIBackEnd.Models.DTO
 
         public List<ReviewsDTO> Reviews = new List<ReviewsDTO>();
 
-        public List<Tag> Tag = new List<Tag>();
+        public List<TagDTO> TagDTO = new List<TagDTO>();
 
     }
 }
