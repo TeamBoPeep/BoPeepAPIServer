@@ -39,14 +39,13 @@ namespace APIBackEnd.Models.Service
 
             Activities activities = new Activities()
             {
-                ID = activitiesDTO.ID,
                 Title = activitiesDTO.Title,
                 Location = Enum.Parse<Location>(activitiesDTO.Location),
                 Description = activitiesDTO.Description,
                 Rate = (Rate)activitiesDTO.Rate,
-                Rating = activitiesDTO.Rating,
-                ExternalLink = activitiesDTO.ExternalLink,
-                ImageUrl = activitiesDTO.ImageUrl
+                Rating = activitiesDTO.Rating, 
+                ExternalLink = activitiesDTO.ExternalLink != null ? activitiesDTO.ExternalLink : "",
+                ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : ""
             };
             _context.Add(activities);
             await _context.SaveChangesAsync();

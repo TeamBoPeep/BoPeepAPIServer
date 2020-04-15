@@ -58,9 +58,9 @@ namespace APIBackEnd.Controllers
         [HttpPost]
         public async Task<ActionResult<Activities>> PostActivities(ActivitiesDTO activities)
         {
-            await _context.CreateActivity(activities);
+            var activity = await _context.CreateActivity(activities);
 
-            return CreatedAtAction("GetActivities", new { id = activities.ID }, activities);
+            return CreatedAtAction("GetActivities", new { id = activity.ID }, activity);
         }
 
         // DELETE: api/Activities/5

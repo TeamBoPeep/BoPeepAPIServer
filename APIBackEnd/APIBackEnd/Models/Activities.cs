@@ -25,9 +25,9 @@ namespace APIBackEnd.Models
     }
     public enum Location
     {
-        Indoor = 0, 
-        Outdoor = 1,
-        Both = 2
+        indoor = 0, 
+        outdoor = 1,
+        both = 2
     }
     public enum Rate
     {
