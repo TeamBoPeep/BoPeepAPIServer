@@ -55,17 +55,24 @@ namespace APIBackEnd.Models.Service
                 ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : "",
                 
             };
-            foreach (var item in activitiesDTO.TagDTO)
-            {
-                Tag tag = new Tag()
-                {
-                    ID = item.Id,
-                    Names = item.Names
-                };
-                await _tagContext.CreateTag(item)
-            };
+             
             _context.Add(activities);
             await _context.SaveChangesAsync();
+            var lastActivity = await _context.Activities.Where(x => x.Title == activitiesDTO.Title)
+                                                  .SingleAsync();
+            foreach (var item in activitiesDTO.Tags)
+            {
+                var tagged = await _context.Tag.Where(x => x.Names == item.Name)
+                                         .SingleAsync();
+                TagActivity tagActivity = new TagActivity()
+                {
+                    ActivitiesId = lastActivity.ID,
+                    TagId = tagged.ID
+                };
+                _context.Add(tagActivity);
+                await _context.SaveChangesAsync();
+
+            }
             return activitiesDTO;
         }
         //used to remove an activity
