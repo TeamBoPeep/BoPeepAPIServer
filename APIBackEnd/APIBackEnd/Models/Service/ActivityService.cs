@@ -16,11 +16,13 @@ namespace APIBackEnd.Models.Service
         /// </summary>
         private BoPeepDbContext _context;
         private IReviewManager _reviewContext;
+        private ITagManager _tagContext;
 
-        public ActivityService(BoPeepDbContext context, IReviewManager reviewContext)
+        public ActivityService(BoPeepDbContext context, IReviewManager reviewContext, ITagManager tagContext)
         {
             _context = context;
             _reviewContext = reviewContext;
+            _tagContext = tagContext;
 
             
         }
@@ -66,6 +68,7 @@ namespace APIBackEnd.Models.Service
             var Activity = await _context.Activities.FindAsync(ID);
             ActivitiesDTO dTO = ConvertToDTO(Activity);
             dTO.Reviews = await GetReviewsById(ID);
+            dTO.TagDTO = await GetTagbyActivityID(ID);
             return dTO;
         }
         //Used to get all the activities in the table
@@ -104,6 +107,21 @@ namespace APIBackEnd.Models.Service
             _context.Update(activities);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<List<TagDTO>> GetTagbyActivityID(int Id)
+        {
+            var Tag = await _context.TagActivity.Where(x => x.ActivitiesId == Id)
+                                                       .ToListAsync();
+            List<TagDTO> aDTO = new List<TagDTO>();
+            foreach (var item in Tag)
+            {
+                TagDTO dTO = await _tagContext.GetTag(Id);
+                aDTO.Add(dTO);
+
+            }
+            return aDTO;
+        }
+
         private ActivitiesDTO ConvertToDTO(Activities activities)
         {
             ActivitiesDTO aDTO = new ActivitiesDTO()

@@ -12,12 +12,12 @@ namespace APIBackEnd.Models.Service
     public class TagServices : ITagManager
     {
         private BoPeepDbContext _context;
-        private IActivityManager _activityContext;
+        //private IActivityManager _activityContext;
 
-        public TagServices(BoPeepDbContext context, IActivityManager activityContext)
+        public TagServices(BoPeepDbContext context)
         {
             _context = context;
-            _activityContext = activityContext;
+            //_activityContext = activityContext;
         }
 
         public async Task<TagDTO> CreateTag(TagDTO tagDTO)
@@ -56,7 +56,7 @@ namespace APIBackEnd.Models.Service
         {
             var tag = await _context.Tag.FindAsync(ID);
             TagDTO tDTO = ConvertToDTO(tag);
-            tDTO.ActivitiesDTOs = await getActivitiesByTagId(ID);
+            //tDTO.ActivitiesDTOs = await getActivitiesByTagId(ID);
             return tDTO;
         }
 
@@ -66,19 +66,20 @@ namespace APIBackEnd.Models.Service
             await _context.SaveChangesAsync();
 
         }
-        public async Task<List<ActivitiesDTO>> getActivitiesByTagId(int Id)
-        {
-            var Activities = await _context.TagActivity.Where(x => x.TagId == Id)
-                                                       .ToListAsync();
-            List<ActivitiesDTO> aDTO = new List<ActivitiesDTO>();
-            foreach (var item in Activities)
-            {
-                ActivitiesDTO dTO = await _activityContext.GetActivity(Id);
-                aDTO.Add(dTO);
+        //public async Task<List<ActivitiesDTO>> getActivitiesByTagId(int Id)
+        //{
+        //    var Activities = await _context.TagActivity.Where(x => x.TagId == Id)
+        //                                               .ToListAsync();
+        //    List<ActivitiesDTO> aDTO = new List<ActivitiesDTO>();
+        //    foreach (var item in Activities)
+        //    {
+        //        ActivitiesDTO dTO = await _activityContext.GetActivity(Id);
+        //        aDTO.Add(dTO);
 
-            }
-            return aDTO;
-        }
+        //    }
+        //    return aDTO;
+        //}
+
         private TagDTO ConvertToDTO(Tag tag)
         {
             TagDTO tDTO = new TagDTO()

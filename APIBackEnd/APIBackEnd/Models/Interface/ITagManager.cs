@@ -16,7 +16,9 @@ namespace APIBackEnd.Models.Interface
         //update
         Task UpdateTag(Tag tag);
         //delete
-        Task DeleteTag(int ID); 
+        Task DeleteTag(int ID);
+
+        //Task<List<ActivitiesDTO>> getActivitiesByTagId(int Id);
     }
 
 }
