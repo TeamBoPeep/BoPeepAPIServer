@@ -42,6 +42,7 @@ namespace APIBackEnd
 
             services.AddTransient<IActivityManager, ActivityService>();
             services.AddTransient<IReviewManager, ReviewsService>();
+            services.AddTransient<ITagManager, TagServices>();
 
         }
 
