@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace APIBackEnd.Models.DTO
 {
+    /// <summary>
+    /// DTO for Tag table
+    /// </summary>
     public class TagDTO
     {
         public int ID { get; set; }
