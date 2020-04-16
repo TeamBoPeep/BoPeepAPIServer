@@ -29,7 +29,7 @@ In a boring quarantine life, we need list of things that will statisfies our nee
 ## Visual
 
 ### ERD
-![ERD](./assets/ERD-diagram.png)
+![ERD](./assets/ERD-final.png)
 
 ### Screenshot of activities API
 ![Activities](./assets/actvity.png)
