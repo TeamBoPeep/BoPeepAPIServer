@@ -13,6 +13,8 @@ namespace APIBackEnd.Models
         public int ID { get; set; }
         public string Name { get; set; }
 
+        // Navigation properties
+
         public List<Reviews> reviews = new List<Reviews>();
     }
 }

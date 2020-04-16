@@ -15,6 +15,7 @@ namespace APIBackEnd.Models
         public string Description { get; set; }
 
         //navigation property
+
         public List<ActivitiesReviews> ActivitiesReviews = new List<ActivitiesReviews>();
         //public UserNames UserNames { get; set; }
     }

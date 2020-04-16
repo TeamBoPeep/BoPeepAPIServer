@@ -12,6 +12,8 @@ namespace APIBackEnd.Models
     {
         public int ActivitiesId { get; set; }
         public int TagId { get; set; }
+
+        // Navigation properties
         public Activities Activities { get; set; }
         public Tag Tag { get; set; }
 

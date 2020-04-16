@@ -13,6 +13,8 @@ namespace APIBackEnd.Models
         public int ID { get; set; }
         public string Names { get; set; }
 
+        // Navigation properties
+
         public List<TagActivity> TagActivities = new List<TagActivity>();
 
     }

@@ -20,17 +20,22 @@ namespace APIBackEnd.Models
         public List<ActivitiesReviews> ActivitiesReviews = new List<ActivitiesReviews>();
 
         public List<TagActivity> TagActivity = new List<TagActivity>();
-
-
     }
+
+    /// <summary>
+    /// Enum for location 
+    /// </summary>
     public enum Location
     {
         indoor = 0, 
         outdoor = 1,
         both = 2,
         na = 3
-
     }
+
+    /// <summary>
+    /// Enum for Rating
+    /// </summary>
     public enum Rate
     {
         upvote = 0,
