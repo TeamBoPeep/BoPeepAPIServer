@@ -20,13 +20,14 @@ Swagger Site: https://bobeepapi.azurewebsites.net/swagger/index.html
 ## Visual
 
 ### ERD
-![ERD](./assets/ERD.png)
-
-### Screenshot of tags API
-![Tags](./assets/Tag.png)
+![ERD](./assets/ERD-diagram.png)
 
 ### Screenshot of activities API
 ![Activities](./assets/actvity.png)
+
+### Screenshot of tags API
+![Tags](./assets/tags.png)
+
 
 ### Screenshot of reviews API
 ![Review](./assets/Review.png)
@@ -41,21 +42,24 @@ This application is created to suggest and review activities that we can do duri
 ---
 
 ## Tools Used
-Microsoft Visual Studio Community 2019
+[Microsoft Visual Studio Community 2019](https://visualstudio.microsoft.com/)
 
 - C#
 - ASP.Net Core
 - Entity Framework
 - MVC
-- Azure
-- Postman
+- [MySQL](https://www.mysql.com)
+- [Azure](https://portal.azure.com)
+- [Postman](https://www.postman.com/)
 
 ---
 
 ## Change Logs
-1.0 - *Documentation is updated and site is fully functional* April 14 2020  
-0.5 - *Reviews, activities, and tags are linked together* April 14 2020  
-0.4 - *Routes are created for all of the models* April 14 2020  
-0.3 - *Routes created for activities* April 13 2020  
-0.2 - *Created MVC files and deployed website* April 13 2020  
-0.1 - *Initialized README document* April 13 2020  
+1.2 - *Creating a review will link to activity* - April 15, 2020  
+1.1 - *Creating a activity with tag will link it together* - April 15, 2020  
+1.0 - *Documentation is updated and site is fully functional* - April 14, 2020  
+0.5 - *Reviews, activities, and tags are linked together* - April 14, 2020  
+0.4 - *Routes are created for all of the models* - April 14, 2020  
+0.3 - *Routes created for activities* - April 13, 2020  
+0.2 - *Created MVC files and deployed website* - April 13, 2020  
+0.1 - *Initialized README document* - April 13, 2020  
