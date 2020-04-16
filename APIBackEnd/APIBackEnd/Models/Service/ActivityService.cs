@@ -19,11 +19,11 @@ namespace APIBackEnd.Models.Service
         private ITagManager _tagContext;
 
         /// <summary>
-        /// 
+        /// The constructor that is keeping all of the implementation
         /// </summary>
-        /// <param name="context"></param>
-        /// <param name="reviewContext"></param>
-        /// <param name="tagContext"></param>
+        /// <param name="context">from the database</param>
+        /// <param name="reviewContext">from IReviewManger interface</param>
+        /// <param name="tagContext">from ITagManager interface</param>
         public ActivityService(BoPeepDbContext context, IReviewManager reviewContext, ITagManager tagContext)
         {
             _context = context;
@@ -31,24 +31,26 @@ namespace APIBackEnd.Models.Service
             _tagContext = tagContext;
 
         }
+
         /// <summary>
         /// Allows us to create the activities as well as utilize our DTOs to normalize the data
         /// </summary>
-        /// <param name="activities"></param>
-        /// <returns></returns>
-
+        /// <param name="activities">The DTO object that is being passed in from front end</param>
         public async Task<ActivitiesDTO> CreateActivity(ActivitiesDTO activitiesDTO)
         {
             List<TagDTO> tDTOList = activitiesDTO.Tags;
-            int total = _context.Activities.Count();
-            int upvote = _context.Activities.Where(x => x.Rate == (Rate)1)
+
+            double total = _context.Activities.Count();
+
+            double upvote = _context.Activities.Where(x => x.Rate == (Rate)1)
                                             .Count();
             activitiesDTO.Rating = (upvote / total * 5);
 
+            // Creating a object that will be stored in database
             Activities activities = new Activities()
             {
                 Title = activitiesDTO.Title,
-                Location = Enum.Parse<Location>(activitiesDTO.Location),
+                Location = activitiesDTO.Location != null ? Enum.Parse<Location>(activitiesDTO.Location) : (Location)3 ,
                 Description = activitiesDTO.Description,
                 Rate = (Rate)activitiesDTO.Rate,
                 Rating = activitiesDTO.Rating, 
@@ -56,16 +58,20 @@ namespace APIBackEnd.Models.Service
                 ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : "",
             };
 
-
-             
             _context.Activities.Add(activities);
             await _context.SaveChangesAsync();
 
+            /// Calling a method that will link Activities and Tag
             await CreateTaskActivityByID(tDTOList);
 
             return activitiesDTO;
         }
 
+        /// <summary>
+        /// Linking the activities and tags together in this join table
+        /// </summary>
+        /// <param name="tDTOList"></param>
+        /// <returns></returns>
         public async Task CreateTaskActivityByID(List<TagDTO> tDTOList)
         {
             int lastActivity = await _context.Activities.OrderByDescending(x => x.ID).Select(x => x.ID).FirstAsync();
@@ -81,7 +87,12 @@ namespace APIBackEnd.Models.Service
 
             }
         }
-        //used to remove an activity
+
+        /// <summary>
+        /// used to remove an activity
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public async Task DeleteActivities(int ID)
         {
             var activities = await _context.Activities.FindAsync(ID);
@@ -90,8 +101,14 @@ namespace APIBackEnd.Models.Service
 
             await _context.SaveChangesAsync();
         }
-        //used to retrieve an activity by it's ID
-        public  async Task<ActivitiesDTO> GetActivity(int ID)
+
+
+        /// <summary>
+        /// used to retrieve an activity by it's ID
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public async Task<ActivitiesDTO> GetActivity(int ID)
         {
             var Activity = await _context.Activities.FindAsync(ID);
             ActivitiesDTO dTO = ConvertToDTO(Activity);
@@ -99,7 +116,12 @@ namespace APIBackEnd.Models.Service
             dTO.TagDTO = await GetTagbyActivityID(ID);
             return dTO;
         }
-        //Used to get all the activities in the table
+
+
+        /// <summary>
+        /// Used to get all the activities in the table
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<ActivitiesDTO>> GetAllActivities()
         {
 
@@ -114,6 +136,10 @@ namespace APIBackEnd.Models.Service
             return aDTO;
         }
 
+        /// <summary>
+        /// Getting the reviews using the ID of Activities
+        /// </summary>
+        /// <param name="ID">Activities ID</param>
         public async Task<List<ReviewsDTO>> GetReviewsById(int ID)
         {
             var reviews = await _context.ActivitiesReviews.Where(x => x.ActivitiesID == ID)
@@ -129,13 +155,22 @@ namespace APIBackEnd.Models.Service
             return rDTOList;
         }
 
-        //changes an activity already in the table (name, description, tags)
+
+        /// <summary>
+        /// changes an activity already in the table (name, description, tags)
+        /// </summary>
+        /// <param name="activities"></param>
+        /// <returns></returns>
         public async Task UpdateActivities(Activities activities)
         {
             _context.Update(activities);
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Getting the Tag by activities ID
+        /// </summary>
+        /// <param name="Id">activities ID</param>
         public async Task<List<TagDTO>> GetTagbyActivityID(int Id)
         {
             List<TagActivity> tActList = new List<TagActivity>();
@@ -151,6 +186,10 @@ namespace APIBackEnd.Models.Service
             return aDTO;
         }
 
+        /// <summary>
+        /// Converting Activities to DTO
+        /// </summary>
+        /// <param name="activities">Activities object</param>
         private ActivitiesDTO ConvertToDTO(Activities activities)
         {
             ActivitiesDTO aDTO = new ActivitiesDTO()

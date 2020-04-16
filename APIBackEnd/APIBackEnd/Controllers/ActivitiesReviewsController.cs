@@ -18,7 +18,11 @@ namespace APIBackEnd.Controllers
     public class ActivitiesReviewsController : ControllerBase
     {
         private readonly BoPeepDbContext _context;
-
+        
+        /// <summary>
+        /// Database context
+        /// </summary>
+        /// <param name="context">database</param>
         public ActivitiesReviewsController(BoPeepDbContext context)
         {
             _context = context;
@@ -31,55 +35,11 @@ namespace APIBackEnd.Controllers
             return await _context.ActivitiesReviews.ToListAsync();
         }
 
-        // GET: api/ActivitiesReviews/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ActivitiesReviews>> GetActivitiesReviews(int id)
-        {
-            var activitiesReviews = await _context.ActivitiesReviews.FindAsync(id);
-
-            if (activitiesReviews == null)
-            {
-                return NotFound();
-            }
-
-            return activitiesReviews;
-        }
-
-        // PUT: api/ActivitiesReviews/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutActivitiesReviews(int id, ActivitiesReviews activitiesReviews)
-        {
-            if (id != activitiesReviews.ReviewsID)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(activitiesReviews).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ActivitiesReviewsExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/ActivitiesReviews
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Creating the ActivitiesReviews row to link activities to reviews
+        /// </summary>
+        /// <param name="activitiesReviews">activitiesreviews ids</param>
         [HttpPost]
         public async Task<ActionResult<ActivitiesReviews>> PostActivitiesReviews(ActivitiesReviews activitiesReviews)
         {
@@ -104,6 +64,10 @@ namespace APIBackEnd.Controllers
         }
 
         // DELETE: api/ActivitiesReviews/5
+        /// <summary>
+        /// Deleting the activitiesreviews row
+        /// </summary>
+        /// <param name="id">id of row to delete</param>
         [HttpDelete("{id}")]
         public async Task<ActionResult<ActivitiesReviews>> DeleteActivitiesReviews(int id)
         {
@@ -119,6 +83,10 @@ namespace APIBackEnd.Controllers
             return activitiesReviews;
         }
 
+        /// <summary>
+        /// Check if the activitiesreview row exist
+        /// </summary>
+        /// <param name="id">checking this row</param>
         private bool ActivitiesReviewsExists(int id)
         {
             return _context.ActivitiesReviews.Any(e => e.ReviewsID == id);

@@ -13,11 +13,20 @@ namespace APIBackEnd.Models.Service
     {
         private BoPeepDbContext _context;
 
+        /// <summary>
+        /// Constructor that will be used to query database
+        /// </summary>
+        /// <param name="context">database context</param>
         public TagServices(BoPeepDbContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// Method that will be used to create a Tag
+        /// </summary>
+        /// <param name="tagDTO">tag from frontend</param>
+        /// <returns>tagDTO</returns>
         public async Task<TagDTO> CreateTag(TagDTO tagDTO)
         {
             Tag tag = new Tag()

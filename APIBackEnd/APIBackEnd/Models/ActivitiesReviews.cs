@@ -13,6 +13,8 @@ namespace APIBackEnd.Models
         public int ActivitiesID { get; set; }
         public int ReviewsID { get; set; }
 
+        // Navigation properties
+
         public Activities Activities { get; set; }
         public Reviews Reviews { get; set; }
     }

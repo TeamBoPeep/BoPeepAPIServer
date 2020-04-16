@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace APIBackEnd.Models.DTO
 {
+    /// <summary>
+    /// DTO for activities
+    /// </summary>
     public class ActivitiesDTO
     {
         public int ID { get; set; }
@@ -18,6 +21,10 @@ namespace APIBackEnd.Models.DTO
         public string ExternalLink { get; set; }
         public string ImageUrl { get; set; }
 
+        
+        /// <summary>
+        ///  Lists of tag, reviews.
+        /// </summary>
         public List<TagDTO> Tags = new List<TagDTO>();
 
         public List<ReviewsDTO> Reviews = new List<ReviewsDTO>();

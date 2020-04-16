@@ -29,10 +29,17 @@ namespace APIBackEnd.Controllers
         }
 
         // GET: api/Activities
+        /// <summary>
+        /// Get route for activities
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ActivitiesDTO>>> GetActivities() => await _context.GetAllActivities();
 
         // GET: api/Activities/5
+        /// <summary>
+        /// Getting the specific activity
+        /// </summary>
+        /// <param name="id">id of the activity</param>
         [HttpGet("{id}")]
         public async Task<ActionResult<ActivitiesDTO>> GetActivities(int id)
         {
@@ -48,8 +55,12 @@ namespace APIBackEnd.Controllers
         }
 
         // PUT: api/Activities/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Updating the activity
+        /// </summary>
+        /// <param name="id">specific activity</param>
+        /// <param name="activities">activity to update</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task PutActivities(int id, Activities activities)
         {              
@@ -57,8 +68,10 @@ namespace APIBackEnd.Controllers
         }
 
         // POST: api/Activities
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Creating a activity using this route
+        /// </summary>
+        /// <param name="activities">activity that will be created</param>
         [HttpPost]
         public async Task<ActionResult<Activities>> PostActivities(ActivitiesDTO activities)
         {
@@ -68,6 +81,10 @@ namespace APIBackEnd.Controllers
         }
 
         // DELETE: api/Activities/5
+        /// <summary>
+        /// Deleting the activity
+        /// </summary>
+        /// <param name="id">id of activity to delete</param>
         [HttpDelete("{id}")]
         public async Task DeleteActivities(int id)
         {

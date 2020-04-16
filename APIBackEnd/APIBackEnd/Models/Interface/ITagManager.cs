@@ -8,6 +8,7 @@ namespace APIBackEnd.Models.Interface
 {
     public interface ITagManager
     {
+        // Create
         Task<TagDTO> CreateTag(TagDTO tagDTO);
         //read
         Task<TagDTO> GetTag(int ID);
@@ -17,8 +18,6 @@ namespace APIBackEnd.Models.Interface
         Task UpdateTag(Tag tag);
         //delete
         Task DeleteTag(int ID);
-
-        //Task<List<ActivitiesDTO>> getActivitiesByTagId(int Id);
     }
 
 }
