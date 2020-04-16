@@ -48,7 +48,7 @@ namespace APIBackEnd.Models.Service
                 Description = activitiesDTO.Description,
                 Rating = activitiesDTO.Rating, 
                 ExternalLink = activitiesDTO.ExternalLink != null ? activitiesDTO.ExternalLink : "",
-                ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : "",
+                ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : @"https://i.imgur.com/3GnqQ7Q.png",
             };
 
             _context.Activities.Add(activities);
