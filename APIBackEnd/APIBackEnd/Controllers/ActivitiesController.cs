@@ -11,7 +11,7 @@ using APIBackEnd.Models.Interface;
 using APIBackEnd.Models.DTO;
 
 /// <summary>
-/// 
+/// controllers for API, linking the backend to front.
 /// </summary>
 namespace APIBackEnd.Controllers
     
