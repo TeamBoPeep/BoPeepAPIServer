@@ -17,12 +17,20 @@ namespace APIBackEnd.Models.Service
         {
             _context = context;
         }
-        public async Task<ReviewsDTO> CreateReviews(Reviews reviews)
+        public async Task<ReviewsDTO> CreateReviews(ReviewsDTO reviewDTO)
         {
-            ReviewsDTO rDTO = ConvertToDTO(reviews);
+            Reviews reviews = new Reviews()
+            {
+                Id = reviewDTO.Id,
+                Name = reviewDTO.Name,
+                Description = reviewDTO.Description
+            };
             _context.Add(reviews);
             await _context.SaveChangesAsync();
-            return rDTO;
+
+            await CreateActivityReviews(reviewDTO.ActivityID);
+
+            return reviewDTO;
 
         }
 
@@ -78,7 +86,8 @@ namespace APIBackEnd.Models.Service
             {
                 Id = reviews.Id,
                 Description = reviews.Description,
-                Name = reviews.Name
+                Name = reviews.Name,
+                ActivityID = 0
             };
             return rDTO;
         }

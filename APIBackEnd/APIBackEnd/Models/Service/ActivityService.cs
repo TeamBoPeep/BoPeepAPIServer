@@ -40,15 +40,17 @@ namespace APIBackEnd.Models.Service
         public async Task<ActivitiesDTO> CreateActivity(ActivitiesDTO activitiesDTO)
         {
             List<TagDTO> tDTOList = activitiesDTO.Tags;
-            int total = _context.Activities.Count();
-            int upvote = _context.Activities.Where(x => x.Rate == (Rate)1)
+
+            double total = _context.Activities.Count();
+
+            double upvote = _context.Activities.Where(x => x.Rate == (Rate)1)
                                             .Count();
             activitiesDTO.Rating = (upvote / total * 5);
 
             Activities activities = new Activities()
             {
                 Title = activitiesDTO.Title,
-                Location = Enum.Parse<Location>(activitiesDTO.Location),
+                Location = activitiesDTO.Location != null ? Enum.Parse<Location>(activitiesDTO.Location) : (Location)3 ,
                 Description = activitiesDTO.Description,
                 Rate = (Rate)activitiesDTO.Rate,
                 Rating = activitiesDTO.Rating, 
@@ -56,8 +58,6 @@ namespace APIBackEnd.Models.Service
                 ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : "",
             };
 
-
-             
             _context.Activities.Add(activities);
             await _context.SaveChangesAsync();
 

@@ -27,12 +27,14 @@ namespace APIBackEnd.Models
     {
         indoor = 0, 
         outdoor = 1,
-        both = 2
+        both = 2,
+        na = 3
+
     }
     public enum Rate
     {
-        UpVote = 0,
-        DownVote = 1,
+        upvote = 0,
+        downvote = 1,
         Null = 2
     }
 }

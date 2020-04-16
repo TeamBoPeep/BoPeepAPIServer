@@ -9,7 +9,7 @@ namespace APIBackEnd.Models.Interface
     public interface IReviewManager
     {
         //create
-        Task<ReviewsDTO> CreateReviews(Reviews reviews);
+        Task<ReviewsDTO> CreateReviews(ReviewsDTO reviewDTO);
         //read
         Task<ReviewsDTO> GetReviews(int ID);
         //readAll
