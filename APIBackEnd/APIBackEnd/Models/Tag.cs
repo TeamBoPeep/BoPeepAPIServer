@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace APIBackEnd.Models
 {
     /// <summary>
-    /// Tag schema that will create a table
+    /// Tag schema that will create a tag table
     /// </summary>
     public class Tag
     {
