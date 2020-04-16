@@ -22,7 +22,7 @@ namespace APIBackEnd.Models.Service
         {
             Tag tag = new Tag()
             {
-                ID = tagDTO.Id,
+                ID = tagDTO.ID,
                 Names = tagDTO.Name
             };
             _context.Add(tag);
@@ -91,7 +91,7 @@ namespace APIBackEnd.Models.Service
         {
             TagDTO tDTO = new TagDTO()
             {
-                Id = tag.ID,
+                ID = tag.ID,
                 Name = tag.Names
             };
             return tDTO;
