@@ -28,26 +28,40 @@ namespace APIBackEnd.Controllers
         }
 
         // GET: api/Reviews
+        /// <summary>
+        /// Getting all of the reviews in the dta base
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ReviewsDTO>>> GetReviews() => await _context.GetAllReviews();
 
 
 
         // GET: api/Reviews/5
+        /// <summary>
+        /// Get route for Reviews 
+        /// </summary>
+        /// <param name="id">Id that is passed from route param</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<ReviewsDTO>> GetReviews(int id) => await _context.GetReviews(id);
 
 
-        // PUT: api/Reviews/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Updtate rout for reviews
+        /// </summary>
+        /// <param name="id">id that is being passed in</param>
+        /// <param name="reviews">reviews that user trying to update</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task PutReviews(int id, Reviews reviews) => await _context.UpdateReviews(reviews);
 
 
         // POST: api/Reviews
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Creating a reviews when this endroute is invoked
+        /// </summary>
+        /// <param name="reviews">reviews from the front end</param>
         [HttpPost]
         public async Task<ActionResult<Reviews>> PostReviews(ReviewsDTO reviews)
         {
@@ -57,6 +71,10 @@ namespace APIBackEnd.Controllers
         }
 
         // DELETE: api/Reviews/5
+        /// <summary>
+        /// Delete route that will delete the review
+        /// </summary>
+        /// <param name="id">id of the review</param>
         [HttpDelete("{id}")]
         public async Task DeleteReviews(int id) => await _context.DeleteReviews(id);
 
