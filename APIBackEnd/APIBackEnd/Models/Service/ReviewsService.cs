@@ -23,8 +23,21 @@ namespace APIBackEnd.Models.Service
             _context.Add(reviews);
             await _context.SaveChangesAsync();
             return rDTO;
+
         }
 
+        public async Task CreateActivityReviews(int ID)
+        {
+            int LastReviews = await _context.Reviews.OrderByDescending(x => x.Id).Select(x => x.Id).FirstAsync();
+            ActivitiesReviews activitiesReviews = new ActivitiesReviews()
+            {
+                ActivitiesID = ID,
+                ReviewsID = LastReviews
+            };
+            _context.ActivitiesReviews.Add(activitiesReviews);
+            await _context.SaveChangesAsync();
+        }
+        
         public async Task DeleteReviews(int ID)
         {
             var reviews = await _context.Reviews.FindAsync(ID);

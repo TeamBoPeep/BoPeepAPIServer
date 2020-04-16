@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using APIBackEnd.Data;
 using APIBackEnd.Models;
 
+/// <summary>
+/// controllers for the review pages, linking the backend to the frontend
+/// </summary>
 namespace APIBackEnd.Controllers
 {
     [Route("api/[controller]")]
