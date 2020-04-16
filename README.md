@@ -1,8 +1,9 @@
 # Bored To Death - *The Boredom Killer*
 
-### Deployed API
+### Deployed Website
 
-https://bobeepapi.azurewebsites.net/api
+API: https://bobeepapi.azurewebsites.net/api  
+Front-End: https://bopeepmvc.azurewebsites.net/
 
 Swagger Site: https://bobeepapi.azurewebsites.net/swagger/index.html
 
