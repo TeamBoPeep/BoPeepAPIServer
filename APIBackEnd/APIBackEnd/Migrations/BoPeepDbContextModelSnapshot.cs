@@ -53,7 +53,7 @@ namespace APIBackEnd.Migrations
                             ID = 1,
                             Description = "A nice stroll outside to enjoy nature and fresh air",
                             ExternalLink = "https://www.wta.org/?gclid=CjwKCAjwvtX0BRAFEiwAGWJyZJMy_TIYVTxTlNY1u8DtYnwh-hfOyaf4tLByYfEdTrqNR2JbN8hk5xoC2-4QAvD_BwE",
-                            ImageUrl = "https://photos.app.goo.gl/VwiATQcEmoGkmjNb9",
+                            ImageUrl = "https://i.imgur.com/v8wMtUC.png",
                             Location = 0,
                             Rating = 4.5,
                             Title = "Hike/trails"
@@ -63,7 +63,7 @@ namespace APIBackEnd.Migrations
                             ID = 2,
                             Description = "A chance to enjoy nature without movement, also good to enjoy with your cat",
                             ExternalLink = "https://www.seattleaudubon.org/sas/getinvolved/gobirding.aspx",
-                            ImageUrl = "https://photos.app.goo.gl/KKhASik7AVioTz9r9",
+                            ImageUrl = "https://i.imgur.com/RGbISO5.png",
                             Location = 1,
                             Rating = 4.5,
                             Title = "Bird watching"
@@ -73,7 +73,7 @@ namespace APIBackEnd.Migrations
                             ID = 3,
                             Description = "Better than a hike! You've got companion to help you stop and smell the roses",
                             ExternalLink = "N/A",
-                            ImageUrl = "https://photos.app.goo.gl/xoRc7LsaQn9JXEfA9",
+                            ImageUrl = "https://i.imgur.com/7m7tggj.png",
                             Location = 0,
                             Rating = 4.5,
                             Title = "Dog/cat walking"
@@ -83,7 +83,7 @@ namespace APIBackEnd.Migrations
                             ID = 4,
                             Description = "grow veggies, flowers and fruit",
                             ExternalLink = "N/A",
-                            ImageUrl = "https://photos.app.goo.gl/cknW2GGkCC9hKNwx6",
+                            ImageUrl = "https://i.imgur.com/RYaMnsB.jpg",
                             Location = 0,
                             Rating = 4.5,
                             Title = "Gardening"
@@ -93,9 +93,9 @@ namespace APIBackEnd.Migrations
                             ID = 5,
                             Description = "Get a nice bite to eat, for free!",
                             ExternalLink = "N/A",
-                            ImageUrl = "https://photos.app.goo.gl/kmLEkS6xmE3q6VSr5",
+                            ImageUrl = "https://i.imgur.com/1MVRqxv.png",
                             Location = 0,
-                            Rating = 4.5,
+                            Rating = 5.0,
                             Title = "Dumpster Diving"
                         },
                         new
@@ -103,9 +103,9 @@ namespace APIBackEnd.Migrations
                             ID = 6,
                             Description = "Time to slay dragons and drink mead",
                             ExternalLink = "N/A",
-                            ImageUrl = "https://photos.app.goo.gl/c1145jDRGZJChSkT8",
+                            ImageUrl = "https://i.imgur.com/GNtKmjd.png",
                             Location = 0,
-                            Rating = 4.5,
+                            Rating = 5.0,
                             Title = "Games"
                         },
                         new
@@ -113,7 +113,7 @@ namespace APIBackEnd.Migrations
                             ID = 7,
                             Description = "Blood pumping and brain working",
                             ExternalLink = "N/A",
-                            ImageUrl = "https://photos.app.goo.gl/fExYrBfPvsroKzfs6",
+                            ImageUrl = "https://i.imgur.com/eljQdTt.png",
                             Location = 0,
                             Rating = 4.5,
                             Title = "Exercise"
@@ -123,7 +123,7 @@ namespace APIBackEnd.Migrations
                             ID = 8,
                             Description = "Art, cooking or C#, the options are endless",
                             ExternalLink = "N/A",
-                            ImageUrl = "https://photos.app.goo.gl/FENqHw19himsaDEZ9",
+                            ImageUrl = "https://i.imgur.com/Ybq9DZl.png",
                             Location = 0,
                             Rating = 4.5,
                             Title = "Learning"
@@ -133,7 +133,7 @@ namespace APIBackEnd.Migrations
                             ID = 9,
                             Description = "Aloe, succulents and anything else your cat won't eat",
                             ExternalLink = "http://serpadesign.com/",
-                            ImageUrl = "https://photos.app.goo.gl/hTKgacuUNjegWq2u9",
+                            ImageUrl = "https://i.imgur.com/sT3isUC.jpg",
                             Location = 0,
                             Rating = 4.5,
                             Title = "Terrariums"
@@ -143,7 +143,7 @@ namespace APIBackEnd.Migrations
                             ID = 10,
                             Description = "be social while social distancing",
                             ExternalLink = "N/A",
-                            ImageUrl = "https://photos.app.goo.gl/cQYoMM3UHax4i9g2A",
+                            ImageUrl = "https://i.imgur.com/GFzanAH.png",
                             Location = 0,
                             Rating = 4.5,
                             Title = "Facetime/video calls"
@@ -266,6 +266,58 @@ namespace APIBackEnd.Migrations
                     b.HasIndex("TagId");
 
                     b.ToTable("TagActivity");
+
+                    b.HasData(
+                        new
+                        {
+                            ActivitiesId = 1,
+                            TagId = 7
+                        },
+                        new
+                        {
+                            ActivitiesId = 1,
+                            TagId = 2
+                        },
+                        new
+                        {
+                            ActivitiesId = 2,
+                            TagId = 1
+                        },
+                        new
+                        {
+                            ActivitiesId = 3,
+                            TagId = 2
+                        },
+                        new
+                        {
+                            ActivitiesId = 3,
+                            TagId = 5
+                        },
+                        new
+                        {
+                            ActivitiesId = 3,
+                            TagId = 7
+                        },
+                        new
+                        {
+                            ActivitiesId = 5,
+                            TagId = 10
+                        },
+                        new
+                        {
+                            ActivitiesId = 6,
+                            TagId = 3
+                        },
+                        new
+                        {
+                            ActivitiesId = 6,
+                            TagId = 4
+                        },
+                        new
+                        {
+                            ActivitiesId = 6,
+                            TagId = 8
+                        });
                 });
 
             modelBuilder.Entity("APIBackEnd.Models.ActivitiesReviews", b =>
