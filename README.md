@@ -22,7 +22,7 @@ Swagger Site: https://bobeepapi.azurewebsites.net/swagger/index.html
 
 ## Web Application
 
-In a boring quarantine life, we need list of things that will statisfies our need and this web application is perfect to solve that problem. This application utilize ASP.NET core and MVC framework to present the data from API server. Activity can be added and users can review each activity.
+In a boring quarantine life, we need list of things that will satisfies our need and this web application is perfect to solve that problem. This application utilize ASP.NET core and MVC framework to present the data from API server. Activity can be added and users can review each activity.
 
 
 ---
@@ -58,7 +58,8 @@ In a boring quarantine life, we need list of things that will statisfies our nee
 ---
 
 ## Change Logs
-2.0 - *Creating a review will recalibrate the rating of that activity* - April 15, 2020
+2.1 - *Default data are updated with new images* - April 16, 2020  
+2.0 - *Creating a review will recalibrate the rating of that activity* - April 15, 2020  
 1.2 - *Creating a review will link to activity* - April 15, 2020  
 1.1 - *Creating a activity with tag will link it together* - April 15, 2020  
 1.0 - *Documentation is updated and site is fully functional* - April 14, 2020  
