@@ -39,6 +39,7 @@ namespace APIBackEnd.Models.Service
 
         public async Task<ActivitiesDTO> CreateActivity(ActivitiesDTO activitiesDTO)
         {
+            List<TagDTO> tDTOList = activitiesDTO.Tags;
             int total = _context.Activities.Count();
             int upvote = _context.Activities.Where(x => x.Rate == (Rate)1)
                                             .Count();
@@ -53,27 +54,32 @@ namespace APIBackEnd.Models.Service
                 Rating = activitiesDTO.Rating, 
                 ExternalLink = activitiesDTO.ExternalLink != null ? activitiesDTO.ExternalLink : "",
                 ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : "",
-                
             };
+
+
              
-            _context.Add(activities);
+            _context.Activities.Add(activities);
             await _context.SaveChangesAsync();
-            var lastActivity = await _context.Activities.Where(x => x.Title == activitiesDTO.Title)
-                                                  .SingleAsync();
-            foreach (var item in activitiesDTO.Tags)
+
+            await CreateTaskActivityByID(tDTOList);
+
+            return activitiesDTO;
+        }
+
+        public async Task CreateTaskActivityByID(List<TagDTO> tDTOList)
+        {
+            int lastActivity = await _context.Activities.OrderByDescending(x => x.ID).Select(x => x.ID).FirstAsync();
+            TagActivity tagActivity = new TagActivity();
+
+            for (int i = 0; i < tDTOList.Count; i++)
             {
-                var tagged = await _context.Tag.Where(x => x.Names == item.Name)
-                                         .SingleAsync();
-                TagActivity tagActivity = new TagActivity()
-                {
-                    ActivitiesId = lastActivity.ID,
-                    TagId = tagged.ID
-                };
-                _context.Add(tagActivity);
+                tagActivity.ActivitiesId = lastActivity;
+                tagActivity.TagId = tDTOList[i].ID;
+
+                _context.TagActivity.Add(tagActivity);
                 await _context.SaveChangesAsync();
 
             }
-            return activitiesDTO;
         }
         //used to remove an activity
         public async Task DeleteActivities(int ID)
@@ -132,12 +138,13 @@ namespace APIBackEnd.Models.Service
 
         public async Task<List<TagDTO>> GetTagbyActivityID(int Id)
         {
-            var Tag = await _context.TagActivity.Where(x => x.ActivitiesId == Id)
+            List<TagActivity> tActList = new List<TagActivity>();
+            tActList = await _context.TagActivity.Where(x => x.ActivitiesId == Id)
                                                        .ToListAsync();
             List<TagDTO> aDTO = new List<TagDTO>();
-            foreach (var item in Tag)
+            foreach (var item in tActList)
             {
-                TagDTO dTO = await _tagContext.GetTag(Id);
+                TagDTO dTO = await _tagContext.GetTag(item.TagId);
                 aDTO.Add(dTO);
 
             }

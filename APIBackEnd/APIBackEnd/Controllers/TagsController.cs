@@ -60,7 +60,7 @@ namespace APIBackEnd.Controllers
         public async Task<ActionResult<Tag>> PostTag(TagDTO tagDTO)
         {
             await _context.CreateTag(tagDTO);
-            return CreatedAtAction("GetTag", new { id = tagDTO.Id }, tagDTO);
+            return CreatedAtAction("GetTag", new { id = tagDTO.ID }, tagDTO);
 
         }
 
