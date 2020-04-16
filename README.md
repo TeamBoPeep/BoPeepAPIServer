@@ -56,6 +56,7 @@ This application is created to suggest and review activities that we can do duri
 ---
 
 ## Change Logs
+1.3 - *Creating a review will recalibrate the rating of that acitivty* - April 15, 2020
 1.2 - *Creating a review will link to activity* - April 15, 2020  
 1.1 - *Creating a activity with tag will link it together* - April 15, 2020  
 1.0 - *Documentation is updated and site is fully functional* - April 14, 2020  

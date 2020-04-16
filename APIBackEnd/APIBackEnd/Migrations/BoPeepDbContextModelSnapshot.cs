@@ -37,9 +37,6 @@ namespace APIBackEnd.Migrations
                     b.Property<int>("Location")
                         .HasColumnType("int");
 
-                    b.Property<int>("Rate")
-                        .HasColumnType("int");
-
                     b.Property<double>("Rating")
                         .HasColumnType("float");
 
@@ -58,7 +55,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "https://www.wta.org/?gclid=CjwKCAjwvtX0BRAFEiwAGWJyZJMy_TIYVTxTlNY1u8DtYnwh-hfOyaf4tLByYfEdTrqNR2JbN8hk5xoC2-4QAvD_BwE",
                             ImageUrl = "https://photos.app.goo.gl/VwiATQcEmoGkmjNb9",
                             Location = 0,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Hike/trails"
                         },
@@ -69,7 +65,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "https://www.seattleaudubon.org/sas/getinvolved/gobirding.aspx",
                             ImageUrl = "https://photos.app.goo.gl/KKhASik7AVioTz9r9",
                             Location = 1,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Bird watching"
                         },
@@ -80,7 +75,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "N/A",
                             ImageUrl = "https://photos.app.goo.gl/xoRc7LsaQn9JXEfA9",
                             Location = 0,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Dog/cat walking"
                         },
@@ -91,7 +85,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "N/A",
                             ImageUrl = "https://photos.app.goo.gl/cknW2GGkCC9hKNwx6",
                             Location = 0,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Gardening"
                         },
@@ -102,7 +95,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "N/A",
                             ImageUrl = "https://photos.app.goo.gl/kmLEkS6xmE3q6VSr5",
                             Location = 0,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Dumpster Diving"
                         },
@@ -113,7 +105,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "N/A",
                             ImageUrl = "https://photos.app.goo.gl/c1145jDRGZJChSkT8",
                             Location = 0,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Games"
                         },
@@ -124,7 +115,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "N/A",
                             ImageUrl = "https://photos.app.goo.gl/fExYrBfPvsroKzfs6",
                             Location = 0,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Exercise"
                         },
@@ -135,7 +125,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "N/A",
                             ImageUrl = "https://photos.app.goo.gl/FENqHw19himsaDEZ9",
                             Location = 0,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Learning"
                         },
@@ -146,7 +135,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "http://serpadesign.com/",
                             ImageUrl = "https://photos.app.goo.gl/hTKgacuUNjegWq2u9",
                             Location = 0,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Terrariums"
                         },
@@ -157,7 +145,6 @@ namespace APIBackEnd.Migrations
                             ExternalLink = "N/A",
                             ImageUrl = "https://photos.app.goo.gl/cQYoMM3UHax4i9g2A",
                             Location = 0,
-                            Rate = 1,
                             Rating = 4.5,
                             Title = "Facetime/video calls"
                         });
@@ -190,6 +177,9 @@ namespace APIBackEnd.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rate")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

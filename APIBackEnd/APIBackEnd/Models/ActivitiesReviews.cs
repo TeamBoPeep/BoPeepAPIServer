@@ -18,4 +18,7 @@ namespace APIBackEnd.Models
         public Activities Activities { get; set; }
         public Reviews Reviews { get; set; }
     }
+
+
+    
 }

@@ -13,6 +13,8 @@ namespace APIBackEnd.Models.DTO
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public int Rate { get; set; }
+        // upvote = 1, downvote = 0, null = 2
 
         /// <summary>
         /// This is to create instance of ActivitiesReview row when reviews are written
