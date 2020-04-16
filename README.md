@@ -1,6 +1,6 @@
 # Bored To Death - *The Boredom Killer*
 
-### Deployed Website
+### Deployed Websites
 
 API: https://bobeepapi.azurewebsites.net/api  
 Front-End: https://bopeepmvc.azurewebsites.net/
@@ -18,10 +18,18 @@ Swagger Site: https://bobeepapi.azurewebsites.net/swagger/index.html
 [Rosalyn Johnson](https://github.com/rosbobos)
 
 ---
+
+
+## Web Application
+
+In a boring quarantine life, we need list of things that will statisfies our need and this web application is perfect to solve that problem. This application utilize ASP.NET core and MVC framework to present the data from API server. Activity can be added and users can review each activity.
+
+
+---
 ## Visual
 
 ### ERD
-![ERD](./assets/ERD-diagram.png)
+![ERD](./assets/ERD-final.png)
 
 ### Screenshot of activities API
 ![Activities](./assets/actvity.png)
@@ -33,12 +41,6 @@ Swagger Site: https://bobeepapi.azurewebsites.net/swagger/index.html
 ### Screenshot of reviews API
 ![Review](./assets/Review.png)
 
-
----
-
-## Web Application
-
-This application is created to suggest and review activities that we can do during our quarantine life. This application is consists of CRUD operation that utilize API backend server and ASP.NET core viewmodel for frontend. The framework of this application is build upon MVC framework. 
 
 ---
 
@@ -56,6 +58,7 @@ This application is created to suggest and review activities that we can do duri
 ---
 
 ## Change Logs
+2.0 - *Creating a review will recalibrate the rating of that activity* - April 15, 2020
 1.2 - *Creating a review will link to activity* - April 15, 2020  
 1.1 - *Creating a activity with tag will link it together* - April 15, 2020  
 1.0 - *Documentation is updated and site is fully functional* - April 14, 2020  

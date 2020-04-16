@@ -11,7 +11,7 @@ namespace APIBackEnd.Models.Service
 {
     public class ReviewsService : IReviewManager
     {
-        private BoPeepDbContext _context;
+        private readonly BoPeepDbContext _context;
 
         /// <summary>
         /// Constructor that will be used to query database
@@ -23,7 +23,7 @@ namespace APIBackEnd.Models.Service
         }
 
         /// <summary>
-        /// Add activityreview in a instance of review
+        /// Add activityreview in a instance of review and updating the reviews to the page
         /// </summary>
         /// <param name="reviewDTO">review from front end</param>
         public async Task<ReviewsDTO> CreateReviews(ReviewsDTO reviewDTO)
@@ -32,12 +32,38 @@ namespace APIBackEnd.Models.Service
             {
                 Id = reviewDTO.Id,
                 Name = reviewDTO.Name,
-                Description = reviewDTO.Description
+                Description = reviewDTO.Description,
+                Rate = (Rate)reviewDTO.Rate
             };
+
             _context.Add(reviews);
+
             await _context.SaveChangesAsync();
 
             await CreateActivityReviews(reviewDTO.ActivityID);
+
+
+            Activities activities = await _context.Activities.FindAsync(reviewDTO.ActivityID);
+
+            var upvote = await _context.ActivitiesReviews.Where(x => x.ActivitiesID == reviewDTO.ActivityID)
+                                                         .ToListAsync();
+
+            double count = 0;
+            foreach (var vote in upvote)
+            {
+                Reviews reviews1 = await _context.Reviews.FindAsync(vote.ReviewsID);
+                if(reviews1.Rate == (Rate)0)
+                {
+                    count++;
+                }
+
+            }
+
+            activities.Rating = (count / upvote.Count) * 5;
+
+            _context.Update(activities);
+
+            await _context.SaveChangesAsync();
 
             return reviewDTO;
 
@@ -118,6 +144,7 @@ namespace APIBackEnd.Models.Service
             {
                 Id = reviews.Id,
                 Description = reviews.Description,
+                Rate = Convert.ToInt32(reviews.Rate),
                 Name = reviews.Name,
                 ActivityID = 0
             };

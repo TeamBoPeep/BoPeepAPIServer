@@ -14,9 +14,9 @@ namespace APIBackEnd.Models.Service
         /// <summary>
         /// Allows us to inject our database into this service
         /// </summary>
-        private BoPeepDbContext _context;
-        private IReviewManager _reviewContext;
-        private ITagManager _tagContext;
+        private readonly BoPeepDbContext _context;
+        private readonly IReviewManager _reviewContext;
+        private readonly ITagManager _tagContext;
 
         /// <summary>
         /// The constructor that is keeping all of the implementation
@@ -40,19 +40,12 @@ namespace APIBackEnd.Models.Service
         {
             List<TagDTO> tDTOList = activitiesDTO.Tags;
 
-            double total = _context.Activities.Count();
-
-            double upvote = _context.Activities.Where(x => x.Rate == (Rate)1)
-                                            .Count();
-            activitiesDTO.Rating = (upvote / total * 5);
-
             // Creating a object that will be stored in database
             Activities activities = new Activities()
             {
                 Title = activitiesDTO.Title,
                 Location = activitiesDTO.Location != null ? Enum.Parse<Location>(activitiesDTO.Location) : (Location)3 ,
                 Description = activitiesDTO.Description,
-                Rate = (Rate)activitiesDTO.Rate,
                 Rating = activitiesDTO.Rating, 
                 ExternalLink = activitiesDTO.ExternalLink != null ? activitiesDTO.ExternalLink : "",
                 ImageUrl = activitiesDTO.ImageUrl != null ? activitiesDTO.ImageUrl : "",
@@ -198,7 +191,6 @@ namespace APIBackEnd.Models.Service
                 Title = activities.Title,
                 Description = activities.Description,
                 Location = activities.Location.ToString(),
-                Rate = Convert.ToInt32(activities.Rate),
                 ExternalLink = activities.ExternalLink,
                 Rating = activities.Rating,
                 ImageUrl = activities.ImageUrl

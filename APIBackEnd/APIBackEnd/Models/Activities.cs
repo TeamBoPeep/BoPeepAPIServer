@@ -10,7 +10,6 @@ namespace APIBackEnd.Models
         public int ID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public Rate Rate { get; set; }
         public double Rating { get; set; }
         public Location Location { get; set; }
         public string ExternalLink { get; set; }
@@ -33,13 +32,5 @@ namespace APIBackEnd.Models
         na = 3
     }
 
-    /// <summary>
-    /// Enum for Rating
-    /// </summary>
-    public enum Rate
-    {
-        upvote = 0,
-        downvote = 1,
-        Null = 2
-    }
+
 }

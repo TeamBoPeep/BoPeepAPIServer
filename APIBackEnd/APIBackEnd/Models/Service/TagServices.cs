@@ -11,7 +11,7 @@ namespace APIBackEnd.Models.Service
 {
     public class TagServices : ITagManager
     {
-        private BoPeepDbContext _context;
+        private readonly BoPeepDbContext _context;
 
         /// <summary>
         /// Constructor that will be used to query database
