@@ -31,20 +31,20 @@ In a boring quarantine life, we need list of things that will satisfies our need
 Clone this repository to your local machine.
 
 ```
-$ git clone https://github.com/TeamBoPeep/BoPeepMVCApp.git
+$ git clone https://github.com/TeamBoPeep/BoPeepAPIServer.git
 ```
 Once downloaded, you can either use the dotnet CLI utilities or Visual Studio 2019 to build the web application. The solution file is located in the BoPeepMVCApp subdirectory at the root of the repository.
 ```
-cd root/BoPeepMVCApp
+cd root/BoPeepAPIServer
 dotnet build
 ```
-The dotnet tools will automatically restore any NuGet dependencies. Before running the application, the provided code-first migration will need to be applied to the SQL server of your choice configured in the `root`/BoPeepMVCApp/appsettings.json file. This requires the `Microsoft.EntityFrameworkCore.Tools NuGet package `and can be run from the NuGet Package Manager Console:
+The dotnet tools will automatically restore any NuGet dependencies. Before running the application, the provided code-first migration will need to be applied to the SQL server of your choice configured in the `root`/BoPeepAPIServer/appsettings.json file. This requires the `Microsoft.EntityFrameworkCore.Tools NuGet package `and can be run from the NuGet Package Manager Console:
 ```
 Update-Database
 ```
 Once the database has been created, the application can be run. Options for running and debugging the application using IIS Express or Kestrel are provided within Visual Studio. From the command line, the following will start an instance of the Kestrel server to host the application:
 ```
-cd root/BoPeepMVCApp
+cd root/BoPeepAPIServer
 dotnet run
 ```
 
